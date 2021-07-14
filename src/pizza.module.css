@@ -2,9 +2,6 @@
   box-sizing: border-box;
 }
 
-.mainpizza {
-}
-
 .Header {
   width: 100%;
   height: 90vh;
@@ -68,7 +65,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: rgba(131, 112, 112, 0.74);
+  /* background-color: rgba(131, 112, 112, 0.74); */
   justify-content: center;
 }
 
@@ -81,9 +78,11 @@ body {
 
 .twit {
   width: 20%;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   object-fit: contain;
-  height: 308px;
+  margin: 56px;
+  border-radius: 1em;
+  height: 348px;
   top: 0;
   position: sticky;
   right: 0;
