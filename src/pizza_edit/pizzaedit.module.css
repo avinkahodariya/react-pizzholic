@@ -1,0 +1,16 @@
+.pizzaedit {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.pizzanavbar {
+  border: solid 2px black;
+  width: 30%;
+}
+
+.image {
+  width: 80%;
+  text-align: center;
+  align-items: center;
+}
