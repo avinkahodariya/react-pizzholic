@@ -1,12 +1,10 @@
 import React from "react";
 
-const Pizza_Navbar = (props) => {
+const Pizzanav = () => {
   return (
     <div>
-      <div>{props.name}</div>
-      <div>
-        <img src={props.img} />
-      </div>
+      {/* <div>{props.name}</div> */}
+      <div>{/* <img src={props.img} /> */}</div>
       <div>
         <div>tometo</div>
         <div>capsicam</div>
@@ -22,4 +20,4 @@ const Pizza_Navbar = (props) => {
   );
 };
 
-export default Pizza_Navbar;
+export default Pizzanav;

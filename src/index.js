@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import App from "./App";
 import Pizza_edit from "./pizza_edit/Pizza_edit";
 import {
   BrowserRouter as Router,
@@ -8,23 +9,20 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
-import App from "./App";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <div>
-      <Router>
-        <Switch>
-          <Route path="/" exact>
-            <App />
-          </Route>
-          <Route path="/pizza" exact>
-            <Pizaa_edit />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
-  </React.StrictMode>,
+  <div>
+    <Router>
+      <Switch>
+        <Route path="/" exact>
+          <App />
+        </Route>
+        <Route path="/pizza" exact>
+          <Pizza_edit />
+        </Route>
+      </Switch>
+    </Router>{" "}
+  </div>,
   document.getElementById("root")
 );
 
