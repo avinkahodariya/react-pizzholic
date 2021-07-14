@@ -3,9 +3,6 @@
 }
 
 .mainpizza {
-  /* height: 95vh;
-  border: solid 2px black;
-  width: 100%; */
 }
 
 .Header {
@@ -40,7 +37,6 @@
   font-size: 40px;
   letter-spacing: 0.2px;
   word-spacing: 0.4px;
-
   font-weight: 700;
   text-decoration: none;
   font-style: normal;
@@ -77,10 +73,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   background-color: rgba(131, 112, 112, 0.74);
-
   justify-content: center;
-
-  /* height: 100%; */
 }
 
 .midleflex {
@@ -97,7 +90,7 @@ body {
   height: 308px;
   top: 0;
   position: sticky;
-  /* z-index: 1; */
+
   right: 0;
 }
 
@@ -124,8 +117,6 @@ body {
   transition: 1.5s;
 }
 .img {
-  /* position: relative;
-  width: 100%;8*/
   height: 40vh;
 }
 img {
