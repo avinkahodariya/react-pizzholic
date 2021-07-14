@@ -157,7 +157,7 @@ img {
   word-wrap: break-word;
   color: #271a1a;
   width: 100%;
-  height: 30%;
+  height: 20%;
 }
 
 .ingre {
@@ -182,6 +182,27 @@ img {
   word-wrap: break-word;
 }
 
+.add {
+  font-family: Apple Chancery, cursive;
+  font-size: large;
+  text-shadow: 0px 5px 10px #4a4a45;
+  word-wrap: break-word;
+  text-align: center;
+  border: solid 2px;
+  border-radius: 1em;
+  margin-top: -5px;
+  width: 93%;
+  padding: 5px;
+  color: aliceblue;
+  background-color: rgb(18, 20, 19);
+  opacity: 0.97;
+}
+
+.add:hover {
+  opacity: 1;
+  transform: scale(0.95);
+  transition: 1.5s;
+}
 .rupi::before {
   content: "\20B9";
 }

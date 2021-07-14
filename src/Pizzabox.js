@@ -25,7 +25,7 @@ const Pizzabox = (props) => {
         <div className={styles.price}>
           <p className={styles.rupi}> {props.price}</p>
         </div>
-        <div className={styles.add} onClick={}>Add+</div>
+        <div className={styles.add}>Add+</div>
       </div>
     </div>
   );

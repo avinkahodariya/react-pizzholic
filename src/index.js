@@ -1,11 +1,29 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import Pizza_edit from "./pizza-edit/Pizza_edit";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
 import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <div>
+      <Router>
+        <Switch>
+          <Route path="/" exact>
+            <App />
+          </Route>
+          <Route path="/pizza" exact>
+            <Pizaa_edit />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   </React.StrictMode>,
   document.getElementById("root")
 );
