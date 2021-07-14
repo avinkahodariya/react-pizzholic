@@ -1,12 +1,13 @@
 import React from "react";
-import Pizza_Navbar from "./Pizza_Navbar";
+import Pizzanav from "./Pizzanav";
 import Pizza_Edit_Portion from "./Pizza_Edit_Portion";
+import styles from "./pizzaedit.module.css";
 
 const Pizza_edit = (props) => {
   return (
-    <div>
-      <div>
-        <Pizza_Navbar
+    <div className={styles.pizzaedit}>
+      <div className={styles.pizzanavbar}>
+        <Pizzanav
         // ingredients={e.ingredients}
         // price={e.price}
         // name={e.name}
@@ -14,7 +15,7 @@ const Pizza_edit = (props) => {
         // image={e.image}
         />
       </div>
-      <div>
+      <div className={styles.image}>
         <Pizza_Edit_Portion />
       </div>
     </div>

@@ -21,7 +21,7 @@ ReactDOM.render(
           <Pizza_edit />
         </Route>
       </Switch>
-    </Router>{" "}
+    </Router>
   </div>,
   document.getElementById("root")
 );

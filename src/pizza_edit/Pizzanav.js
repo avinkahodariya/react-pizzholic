@@ -1,8 +1,9 @@
 import React from "react";
+import styles from "./pizzaedit.module.css";
 
 const Pizzanav = () => {
   return (
-    <div>
+    <div className={styles}>
       {/* <div>{props.name}</div> */}
       <div>{/* <img src={props.img} /> */}</div>
       <div>
