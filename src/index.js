@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Pizza_edit from "./pizza-edit/Pizza_edit";
+import Pizza_edit from "./pizza_edit/Pizza_edit";
 import {
   BrowserRouter as Router,
   Switch,
