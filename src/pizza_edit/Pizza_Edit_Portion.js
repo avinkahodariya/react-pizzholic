@@ -3,6 +3,7 @@ import Capsicum from "./capsicum.png";
 import Corn from "./corn.png";
 import olive from "./olive.png";
 import tometo from "./tometo.png";
+import Mozzarella from "./Mozzarella.png";
 import masroom from "./masroom.png";
 import onion from "./onion.png";
 import brokoli from "./brokoli.png";
@@ -33,6 +34,17 @@ const Pizza_Edit_Portion = (props) => {
       i.push(
         <div className={styles.absolute}>
           <img src={Corn} name={reciepeArray[j]} className={styles.imagespan} />
+        </div>
+      );
+    }
+    if (reciepeArray[j] == "Mozzarella") {
+      i.push(
+        <div className={styles.absolute}>
+          <img
+            src={Mozzarella}
+            name={reciepeArray[j]}
+            className={styles.imagespan}
+          />
         </div>
       );
     }
