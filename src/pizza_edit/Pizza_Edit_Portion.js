@@ -1,17 +1,115 @@
 import React from "react";
-import capsicam from "./capsicam.png";
-import cheese from "./cheese.png";
-import paper from "./papaer.png";
+import Capsicum from "./capsicum.png";
+import Corn from "./corn.png";
 import olive from "./olive.png";
 import tometo from "./tometo.png";
 import masroom from "./masroom.png";
+import onion from "./onion.png";
+import brokoli from "./brokoli.png";
 import pizzaedit from "./pizza-edit.png";
 import styles from "./pizzaedit.module.css";
 
-const Pizza_Edit_Portion = () => {
+const Pizza_Edit_Portion = (props) => {
+  let reciepeArray = props.reciepe;
+  console.log(reciepeArray);
+
+  var i = [];
+
+  for (var j = 0; j < reciepeArray.length; j++) {
+    console.log(reciepeArray);
+    if (reciepeArray[j] == "Capsicum") {
+      console.log(j);
+      i.push(
+        <div className={styles.absolute}>
+          <img
+            src={Capsicum}
+            name={reciepeArray[j]}
+            className={styles.imagespan}
+          />
+        </div>
+      );
+    }
+    if (reciepeArray[j] == "Corn") {
+      i.push(
+        <div className={styles.absolute}>
+          <img src={Corn} name={reciepeArray[j]} className={styles.imagespan} />
+        </div>
+      );
+    }
+    if (reciepeArray[j] == "Brokoli") {
+      i.push(
+        <div className={styles.absolute}>
+          <img
+            src={brokoli}
+            name={reciepeArray[j]}
+            className={styles.imagespan}
+          />
+        </div>
+      );
+    }
+    if (reciepeArray[j] == "Olive") {
+      i.push(
+        <div className={styles.absolute}>
+          <img
+            src={olive}
+            name={reciepeArray[j]}
+            className={styles.imagespan}
+          />
+        </div>
+      );
+    }
+    if (reciepeArray[j] == "Tomato") {
+      i.push(
+        <div className={styles.absolute}>
+          <img
+            src={tometo}
+            name={reciepeArray[j]}
+            className={styles.imagespan}
+          />
+        </div>
+      );
+    }
+    if (reciepeArray[j] == "Masroom") {
+      i.push(
+        <div className={styles.absolute}>
+          <img
+            src={masroom}
+            name={reciepeArray[j]}
+            className={styles.imagespan}
+          />
+        </div>
+      );
+    }
+    if (reciepeArray[j] == "Onion") {
+      i.push(
+        <div className={styles.absolute}>
+          <img
+            src={onion}
+            name={reciepeArray[j]}
+            className={styles.imagespan}
+          />
+        </div>
+      );
+    }
+  }
+
   return (
     <div className={styles.image}>
-      <img src={pizzaedit} style={{ width: "500px", height: "500px" }} />
+      <div className={styles.piz_edi}>
+        <div style={{ position: "relative" }}>
+          <img
+            src={pizzaedit}
+            style={{
+              width: "500px",
+              height: "500px",
+              left: "337px",
+              top: "1px",
+            }}
+          />
+
+          <div className={styles.edit_main}> {i}</div>
+        </div>
+      </div>
     </div>
   );
 };
