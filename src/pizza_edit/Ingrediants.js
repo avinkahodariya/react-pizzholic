@@ -132,7 +132,7 @@ const Ingrediants = (props) => {
         </div>
       );
     }
-    if (reciepeArray[j] == "Masroom") {
+    if (reciepeArray[j] == "Mushroom") {
       i.push(
         <div>
           <img

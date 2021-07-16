@@ -18,6 +18,7 @@ const Pizza_edit = (props) => {
     } else {
       console.log(checkedItems);
       let name = event.target.getAttribute("name");
+      console.log();
 
       setCheckedItems(checkedItems.filter((item) => item !== name));
     }

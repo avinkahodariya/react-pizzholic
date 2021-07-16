@@ -81,7 +81,7 @@ const Pizza_Edit_Portion = (props) => {
         </div>
       );
     }
-    if (reciepeArray[j] == "Masroom") {
+    if (reciepeArray[j] == "Mushroom") {
       i.push(
         <div className={styles.absolute}>
           <img
