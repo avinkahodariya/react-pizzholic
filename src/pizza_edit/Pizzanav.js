@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import styles from "./pizzaedit.module.css";
 import italian from "../italian.jpg";
 
-const HandleCheckBox = () => {};
-
 const Pizzanav = (props) => {
   return (
     <div>
@@ -15,7 +13,6 @@ const Pizzanav = (props) => {
       </div>
       <div className={styles.navcheck}>
         <div className={styles.navingre}>
-          {" "}
           {props.ingredients.map((ingre) => {
             return (
               <div className={styles.ingre}>

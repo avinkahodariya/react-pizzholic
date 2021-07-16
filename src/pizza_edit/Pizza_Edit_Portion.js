@@ -106,22 +106,17 @@ const Pizza_Edit_Portion = (props) => {
   }
 
   return (
-    <div className={styles.image}>
-      <div className={styles.piz_edi}>
-        <div style={{ position: "relative" }}>
-          <img
-            src={pizzaedit}
-            style={{
-              width: "500px",
-              height: "500px",
-              left: "337px",
-              top: "1px",
-            }}
-          />
-
-          <div className={styles.edit_main}> {i}</div>
-        </div>
+    <div className={styles.pizzzzzzzza}>
+      <div className={styles.pizaimagecircle}>
+        <img src={pizzaedit} />
       </div>
+
+      {/* <div className={styles.edit_main}>
+        <div className={styles.imageabs}>
+          <div className={styles.ingreabsolute}>{i}</div>
+        </div>
+      </div> */}
+      {i}
     </div>
   );
 };

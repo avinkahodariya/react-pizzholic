@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Nav from "./Nav";
 import Pizzanav from "./Pizzanav";
 import Pizza_Edit_Portion from "./Pizza_Edit_Portion";
 import styles from "./pizzaedit.module.css";
@@ -12,8 +13,8 @@ const Pizza_edit = (props) => {
   const handleChange = (event) => {
     console.log(checkedItems);
     if (event.target.checked) {
-      console.log(checkedItems);
-      setCheckedItems([...checkedItems, event.target.value]);
+      console.log(checkedItems, event.target.name);
+      setCheckedItems([...checkedItems, event.target.name]);
     } else {
       console.log(checkedItems);
       let name = event.target.getAttribute("name");
@@ -26,8 +27,16 @@ const Pizza_edit = (props) => {
   return (
     <div className={styles.pizzaedit}>
       <div className={styles.pizzanavbar}>
-        <Pizzanav
+        {/* <Pizzanav
           ingredients={location.state.data.ingredients}
+          price={location.state.data.price}
+          name={location.state.data.name}
+          id={location.state.data.id}
+          image={location.state.data.image}
+          handleChange={handleChange}
+        /> */}
+        <Nav
+          ingre={location.state.data.ingredients}
           price={location.state.data.price}
           name={location.state.data.name}
           id={location.state.data.id}
@@ -35,9 +44,8 @@ const Pizza_edit = (props) => {
           handleChange={handleChange}
         />
       </div>
-      <div className={styles.pizzaimage}>
-        <Pizza_Edit_Portion reciepe={checkedItems} />
-      </div>
+
+      <Pizza_Edit_Portion reciepe={checkedItems} />
     </div>
   );
 };
