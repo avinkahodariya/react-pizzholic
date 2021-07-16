@@ -3,6 +3,7 @@ import Capsicum from "./capsicum.png";
 import Corn from "./corn.png";
 import olive from "./olive.png";
 import tometo from "./tometo.png";
+import Mozzarella from "./Mozzarella.png";
 import masroom from "./masroom.png";
 import onion from "./onion.png";
 import brokoli from "./brokoli.png";
@@ -33,6 +34,17 @@ const Pizza_Edit_Portion = (props) => {
       i.push(
         <div className={styles.absolute}>
           <img src={Corn} name={reciepeArray[j]} className={styles.imagespan} />
+        </div>
+      );
+    }
+    if (reciepeArray[j] == "Mozzarella") {
+      i.push(
+        <div className={styles.absolute}>
+          <img
+            src={Mozzarella}
+            name={reciepeArray[j]}
+            className={styles.imagespan}
+          />
         </div>
       );
     }
@@ -69,7 +81,7 @@ const Pizza_Edit_Portion = (props) => {
         </div>
       );
     }
-    if (reciepeArray[j] == "Masroom") {
+    if (reciepeArray[j] == "Mushroom") {
       i.push(
         <div className={styles.absolute}>
           <img
@@ -94,22 +106,17 @@ const Pizza_Edit_Portion = (props) => {
   }
 
   return (
-    <div className={styles.image}>
-      <div className={styles.piz_edi}>
-        <div style={{ position: "relative" }}>
-          <img
-            src={pizzaedit}
-            style={{
-              width: "500px",
-              height: "500px",
-              left: "337px",
-              top: "1px",
-            }}
-          />
-
-          <div className={styles.edit_main}> {i}</div>
-        </div>
+    <div className={styles.pizzzzzzzza}>
+      <div className={styles.pizaimagecircle}>
+        <img src={pizzaedit} />
       </div>
+
+      {/* <div className={styles.edit_main}>
+        <div className={styles.imageabs}>
+          <div className={styles.ingreabsolute}>{i}</div>
+        </div>
+      </div> */}
+      {i}
     </div>
   );
 };

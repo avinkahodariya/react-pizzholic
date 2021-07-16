@@ -21,14 +21,7 @@ const Midle = () => {
 
     {
       name: "Pasta Pizza",
-      ingredients: [
-        "Capsicum",
-        "Pasta",
-        "Onion",
-        "Corn",
-        "Tomato",
-        "Mozzarella",
-      ],
+      ingredients: ["Capsicum", , "Onion", "Corn", "Tomato", "Mozzarella"],
       price: "400",
       id: "2",
       image: pasta,
@@ -36,7 +29,7 @@ const Midle = () => {
 
     {
       name: "Mushroom Pizza",
-      ingredients: ["Paper", "Onion", "Jalapenos", "Mushroom", "Mozzarella"],
+      ingredients: ["Capsicum", "Onion", "Mushroom", "Mozzarella"],
       price: "500",
       id: "3",
       image: masroom,
@@ -44,7 +37,7 @@ const Midle = () => {
 
     {
       name: "Pataka Paneer",
-      ingredients: ["Capsicum", "Paneer", "Peprika", "Corn"],
+      ingredients: ["Capsicum", "Olive", "Tometo", "Corn"],
       price: "350",
       id: "4",
       image: paneer,
@@ -52,7 +45,7 @@ const Midle = () => {
 
     {
       name: "Veg Mexican",
-      ingredients: ["Paper", "Onion", "Tomato", "Jalapenos", "Mozzarella"],
+      ingredients: ["Capsicum", "Onion", "Tomato", "Mozzarella"],
       price: "380",
       id: "5",
       image: mexican,
@@ -60,7 +53,7 @@ const Midle = () => {
 
     {
       name: "Veggie Delight",
-      ingredients: ["Paper", "Onion", "Tomato", "Mozzarella"],
+      ingredients: ["Capsicum", "Onion", "Tomato", "Mozzarella"],
       price: "280",
       id: "6",
       image: veg,
