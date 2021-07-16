@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Pizzanav from "./Pizzanav";
 import Pizza_Edit_Portion from "./Pizza_Edit_Portion";
 import styles from "./pizzaedit.module.css";
@@ -6,7 +6,22 @@ import Pizzabox from "../Pizzabox";
 import { useLocation } from "react-router-dom";
 import italian from "../italian.jpg";
 const Pizza_edit = (props) => {
+  const [checkedItems, setCheckedItems] = useState([]);
   const location = useLocation();
+
+  const handleChange = (event) => {
+    console.log(checkedItems);
+    if (event.target.checked) {
+      console.log(checkedItems);
+      setCheckedItems([...checkedItems, event.target.value]);
+    } else {
+      console.log(checkedItems);
+      let name = event.target.getAttribute("name");
+
+      setCheckedItems(checkedItems.filter((item) => item !== name));
+    }
+  };
+
   console.log(location.state.data);
   return (
     <div className={styles.pizzaedit}>
@@ -17,10 +32,11 @@ const Pizza_edit = (props) => {
           name={location.state.data.name}
           id={location.state.data.id}
           image={location.state.data.image}
+          handleChange={handleChange}
         />
       </div>
       <div className={styles.pizzaimage}>
-        <Pizza_Edit_Portion />
+        <Pizza_Edit_Portion reciepe={checkedItems} />
       </div>
     </div>
   );

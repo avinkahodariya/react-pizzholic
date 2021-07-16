@@ -57,7 +57,7 @@ img {
   border-radius: 1em;
 }
 .ingre {
-  color: black;
+  color: rgb(192, 176, 176);
   /* border: 2px solid; */
   padding: 5px;
   font-weight: 400;
@@ -87,10 +87,11 @@ img {
   align-items: center;
 }
 .navingre {
-  height: 100%;
+  height: 5vh;
   width: 50%;
   margin: 0 auto;
   text-align: center;
+  font-size: 3vh;
 }
 .absolute {
   position: absolute;
@@ -102,6 +103,16 @@ img {
 .imagespan {
   object-fit: none;
   position: absolute;
+  animation-name: opecityset;
+  animation-duration: 2s;
+}
+@keyframes opecityset {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 input {

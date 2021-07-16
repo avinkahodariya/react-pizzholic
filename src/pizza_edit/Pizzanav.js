@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./pizzaedit.module.css";
 import italian from "../italian.jpg";
 
+const HandleCheckBox = () => {};
+
 const Pizzanav = (props) => {
-  console.log(props);
   return (
     <div>
       <div className={styles.navtitle}>
@@ -19,10 +20,16 @@ const Pizzanav = (props) => {
             return (
               <div className={styles.ingre}>
                 {ingre}
-                <input type="checkbox" value={ingre} />
+                <input
+                  type="checkbox"
+                  name={ingre}
+                  value={ingre}
+                  onChange={props.handleChange}
+                />
               </div>
             );
           })}
+          <button> SUBMIT </button>
         </div>
       </div>
     </div>
