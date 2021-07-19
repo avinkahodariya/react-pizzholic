@@ -25,35 +25,36 @@ const Pizzabox = (props) => {
 
   return (
     <div className={styles.box} id={props.id}>
-      <div className={styles.img}>
-        <img
-          src={props.image}
-          style={{
-            top: "0",
-            left: "0",
-            borderRadius: "1em",
-            width: "100%",
-            height: "100%",
-          }}
-        />
-      </div>
+      {/* <div className={styles.img}> */}
+      <img
+        src={props.image}
+        style={{
+          top: "0",
+          left: "0",
+          borderRadius: "1em",
+          width: "100%",
+          height: "300px",
+        }}
+      />
+      {/* </div> */}
       <div className={styles.info}>
         <p className={styles.name}> {props.name}</p>
-        <div className={styles.ingredients}>
+        <p className={styles.ingredients}>
           Ingredients:
-          <div className={styles.ingre}>
+          <p className={styles.ingre}>
             {props.ingredients.map((ingre) => {
               return <span>{ingre} </span>;
             })}
-          </div>
-        </div>
-        <div className={styles.price}>
+          </p>
+        </p>
+        <p className={styles.price}>
           <p className={styles.rupi}> {props.price}</p>
-        </div>
-        <div className={styles.add} onClick={redirect}>
+        </p>
+        <button className={styles.add} onClick={redirect}>
           Add+
-        </div>
+        </button>
       </div>
+      //{" "}
     </div>
   );
 };
