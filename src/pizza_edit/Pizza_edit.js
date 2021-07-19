@@ -6,6 +6,7 @@ import styles from "./pizzaedit.module.css";
 import Pizzabox from "../Pizzabox";
 import { useLocation } from "react-router-dom";
 import italian from "../italian.jpg";
+import Footer from "../Footer";
 const Pizza_edit = (props) => {
   const [checkedItems, setCheckedItems] = useState([]);
   const location = useLocation();
@@ -26,9 +27,10 @@ const Pizza_edit = (props) => {
 
   console.log(location.state.data);
   return (
-    <div className={styles.pizzaedit}>
-      <div className={styles.pizzanavbar}>
-        {/* <Pizzanav
+    <div>
+      <div className={styles.pizzaedit}>
+        <div className={styles.pizzanavbar}>
+          {/* <Pizzanav
           ingredients={location.state.data.ingredients}
           price={location.state.data.price}
           name={location.state.data.name}
@@ -36,17 +38,19 @@ const Pizza_edit = (props) => {
           image={location.state.data.image}
           handleChange={handleChange}
         /> */}
-        <Nav
-          ingre={location.state.data.ingredients}
-          price={location.state.data.price}
-          name={location.state.data.name}
-          id={location.state.data.id}
-          image={location.state.data.image}
-          handleChange={handleChange}
-        />
-      </div>
+          <Nav
+            ingre={location.state.data.ingredients}
+            price={location.state.data.price}
+            name={location.state.data.name}
+            id={location.state.data.id}
+            image={location.state.data.image}
+            handleChange={handleChange}
+          />
+        </div>
 
-      <Pizza_Edit_Portion reciepe={checkedItems} />
+        <Pizza_Edit_Portion reciepe={checkedItems} />
+      </div>
+      <Footer />
     </div>
   );
 };

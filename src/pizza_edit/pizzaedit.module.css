@@ -1,7 +1,7 @@
 .pizzanavbar {
   border: solid 2px black;
-  width: 30%;
-  background-color: rgb(248, 242, 242);
+  width: 300px;
+  background-color: rgb(22, 18, 18);
 }
 * {
   box-sizing: border-box;
@@ -20,7 +20,7 @@ img {
   /* top: 0px;
   left: 0px;*/
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 
   /* box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.74); */
   border: none;
@@ -57,7 +57,7 @@ img {
   border-radius: 1em;
 }
 .ingre {
-  color: rgb(192, 176, 176);
+  color: rgb(197, 31, 31);
   /* border: 2px solid; */
   padding: 5px;
   font-weight: 400;
@@ -140,23 +140,29 @@ input {
   float: initial;
 }
 .newnavingre div div div {
-  border: solid rgb(19, 18, 18) 1px;
-  background-color: aliceblue;
+  border: solid rgb(160, 36, 36) 1px;
+  border-radius: 1em;
+  background-color: rgb(43, 24, 41);
+  width: 150px;
+  margin: 0 auto;
+  /* float: left; */
 }
 
 .newnavingre div div {
-  border: solid rgb(17, 16, 16) 1px;
+  border: solid rgb(19, 46, 16) 1px;
+  border-radius: 1em;
   padding: 5px;
   margin: 5px;
   height: 60%;
+  text-align: center;
 }
 
 .newnavingre div {
-  border: solid 1px rgb(8, 8, 8);
+  /* border: solid 1px rgb(8, 8, 8); */
 }
 
 .navbar div div img {
-  border: solid 1px wheat;
+  border: solid 1px rgb(235, 235, 10);
 }
 .edit_main {
   border-radius: 1em;
@@ -209,8 +215,15 @@ input {
   height: fit-content; */
 }
 .buybutton {
-  width: 100%;
-  background-color: bisque;
+  background-color: rgba(225, 248, 12, 0.301);
   text-align: center;
-  padding: 20px;
+
+  border-radius: 1em;
+  width: 150px;
+  height: 30px;
+  font-size: larger;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border: 2px solid rgb(136, 209, 160);
+  margin: 0 auto;
 }
