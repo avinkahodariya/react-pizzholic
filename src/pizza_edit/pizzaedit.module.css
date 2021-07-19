@@ -227,3 +227,22 @@ input {
   border: 2px solid rgb(136, 209, 160);
   margin: 0 auto;
 }
+
+.holic,
+.menu {
+  text-align: center;
+  width: 100%;
+  background-color: #313131;
+  color: aliceblue;
+  font-family: Andale Mono, monospace;
+  font-size: 100%;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 40px;
+  letter-spacing: 0.2px;
+  word-spacing: 0.4px;
+  font-weight: 700;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: small-caps;
+  margin: 0;
+}

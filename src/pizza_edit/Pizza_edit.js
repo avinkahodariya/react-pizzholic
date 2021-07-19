@@ -28,6 +28,7 @@ const Pizza_edit = (props) => {
   console.log(location.state.data);
   return (
     <div>
+      <div className={styles.holic}>Let's Create Your Own Pizza</div>
       <div className={styles.pizzaedit}>
         <div className={styles.pizzanavbar}>
           {/* <Pizzanav
