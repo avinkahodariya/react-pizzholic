@@ -12,7 +12,14 @@ const Nav = (props) => {
           image={props.image}
           handleChange={props.handleChange}
         />
-        <button className={styles.buybutton}>Buy It...</button>
+        {/* <div className={styles.BuyAddButton}>
+          <button className={styles.buybutton} onClick={BuyButton}>
+            Buy It...
+          </button>
+          <button className={styles.buybutton} onClick={AddToCart}>
+            Add To Cart
+          </button>
+        </div> */}
       </div>
     </div>
   );

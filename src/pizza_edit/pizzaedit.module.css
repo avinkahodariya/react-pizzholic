@@ -219,9 +219,9 @@ input {
   text-align: center;
 
   border-radius: 1em;
-  width: 150px;
+  width: 100px;
   height: 30px;
-  font-size: larger;
+  /* font-size: larger; */
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   border: 2px solid rgb(136, 209, 160);
@@ -245,4 +245,10 @@ input {
   font-style: normal;
   font-variant: small-caps;
   margin: 0;
+}
+.BuyAddButton {
+  /* display: flex;
+  justify-content: center; */
+  flex-direction: row;
+  text-align: center;
 }
