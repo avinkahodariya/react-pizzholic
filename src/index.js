@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import Pizza_edit from "./pizza_edit/Pizza_edit";
+import Cart from "./pizza_edit/Cart";
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,6 +20,9 @@ ReactDOM.render(
         </Route>
         <Route path="/pizza" exact>
           <Pizza_edit />
+        </Route>
+        <Route path="/cart" exact>
+          <Cart />
         </Route>
       </Switch>
     </Router>

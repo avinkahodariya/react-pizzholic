@@ -25,31 +25,42 @@ const Pizza_edit = (props) => {
     }
   };
 
-  console.log(location.state.data);
+  const AddToCart = () => {
+    console.log(checkedItems);
+    console.log(location.state.data.id, location.state.data.price);
+    let data = JSON.parse(localStorage.getItem("data"));
+    if (data == undefined || data == null) {
+      data = [];
+    }
+    data.push({
+      ingredients: location.state.data.ingredients,
+      price: location.state.data.price,
+      name: location.state.data.name,
+      id: location.state.data.id,
+    });
+    localStorage.setItem("data", JSON.stringify(data));
+    console.log(data);
+  };
+  // {
+  //   window.scrollTo(0, 0);
+  // }
   return (
     <div>
-      <div className={styles.pizzaedit}>
-        <div className={styles.pizzanavbar}>
-          {/* <Pizzanav
-          ingredients={location.state.data.ingredients}
-          price={location.state.data.price}
-          name={location.state.data.name}
-          id={location.state.data.id}
-          image={location.state.data.image}
-          handleChange={handleChange}
-        /> */}
-          <Nav
-            ingre={location.state.data.ingredients}
-            price={location.state.data.price}
-            name={location.state.data.name}
-            id={location.state.data.id}
-            image={location.state.data.image}
-            handleChange={handleChange}
-          />
-        </div>
-
+      <div className={styles.pizzarelative}>
+        {" "}
         <Pizza_Edit_Portion reciepe={checkedItems} />
       </div>
+
+      <Nav
+        ingre={location.state.data.ingredients}
+        price={location.state.data.price}
+        name={location.state.data.name}
+        id={location.state.data.id}
+        image={location.state.data.image}
+        handleChange={handleChange}
+        AddToCart={AddToCart}
+      />
+
       <Footer />
     </div>
   );
