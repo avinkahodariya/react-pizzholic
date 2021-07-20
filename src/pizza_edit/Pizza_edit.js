@@ -25,9 +25,14 @@ const Pizza_edit = (props) => {
     }
   };
 
-  console.log(location.state.data);
+  // const AddToCart =()=>{
+  //   console.log(checkedItems);
+  //   let data = JSON.parse(localStorage.getItem("data"));
+  // }
+
   return (
     <div>
+      <div className={styles.holic}>Let's Create Your Own Pizza</div>
       <div className={styles.pizzaedit}>
         <div className={styles.pizzanavbar}>
           {/* <Pizzanav
