@@ -119,7 +119,7 @@ body {
 }
 
 .Footer {
-  height: 100%;
+  height: 200px;
   padding: 50px;
   display: flex;
   flex-direction: row;
