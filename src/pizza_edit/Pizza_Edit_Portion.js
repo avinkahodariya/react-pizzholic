@@ -106,16 +106,9 @@ const Pizza_Edit_Portion = (props) => {
   }
 
   return (
-    <div className={styles.pizzzzzzzza}>
-      <div className={styles.pizaimagecircle}>
-        <img src={pizzaedit} />
-      </div>
+    <div className={styles.PizzaImageMaking}>
+      <img src={pizzaedit} className={styles.PizzaMainImage} />
 
-      {/* <div className={styles.edit_main}>
-        <div className={styles.imageabs}>
-          <div className={styles.ingreabsolute}>{i}</div>
-        </div>
-      </div> */}
       {i}
     </div>
   );

@@ -18,177 +18,153 @@ const Ingrediants = (props) => {
     if (reciepeArray[j] == "Capsicum") {
       console.log(j);
       i.push(
-        <div>
-          <img
-            src={Capsicum}
-            // className={styles.imagespan}
-            style={{ width: "30%", height: "30%" }}
-          />
-          <div>
-            {reciepeArray[j]}{" "}
-            <input
-              type="checkbox"
-              name={reciepeArray[j]}
-              id={props.ingre}
-              onChange={props.handleChange}
+        <div className={styles.subingreimage}>
+          <label>
+            <img
+              src={Capsicum}
+              // className={styles.imagespan}
+              className={styles.pizzaingreimage}
             />
-          </div>
+          </label>
+
+          <input
+            type="checkbox"
+            name={reciepeArray[j]}
+            id={props.ingre}
+            onChange={props.handleChange}
+          />
         </div>
       );
     }
     if (reciepeArray[j] == "Corn") {
       i.push(
-        <div>
-          <img src={Corn} style={{ width: "30%", height: "30%" }} />{" "}
-          <div>
-            {reciepeArray[j]}
-            <input
-              type="checkbox"
-              name={reciepeArray[j]}
-              id={props.ingre}
-              onChange={props.handleChange}
-            />
-          </div>
+        <div className={styles.subingreimage}>
+          <label>
+            <img src={Corn} className={styles.pizzaingreimage} />
+          </label>
+          <input
+            type="checkbox"
+            name={reciepeArray[j]}
+            id={props.ingre}
+            onChange={props.handleChange}
+          />
         </div>
       );
     }
     if (reciepeArray[j] == "Mozzarella") {
       i.push(
-        <div>
-          <img
-            src={Mozzarella}
-            // className={styles.imagespan}
-            style={{ width: "30%", height: "30%" }}
-          />{" "}
-          <div>
-            {reciepeArray[j]}
-            <input
-              type="checkbox"
-              name={reciepeArray[j]}
-              id={props.ingre}
-              onChange={props.handleChange}
+        <div className={styles.subingreimage}>
+          <label>
+            <img
+              src={Mozzarella}
+              // className={styles.imagespan}
+              className={styles.pizzaingreimage}
             />
-          </div>
+          </label>
+          <input
+            type="checkbox"
+            name={reciepeArray[j]}
+            id={props.ingre}
+            onChange={props.handleChange}
+          />
         </div>
       );
     }
     if (reciepeArray[j] == "Brokoli") {
       i.push(
-        <div>
-          <img
-            src={Brokoli}
-            style={{ width: "30%", height: "30%" }}
-            // className={styles.imagespan}
-          />{" "}
-          <div>
-            {reciepeArray[j]}
-            <input
-              type="checkbox"
-              name={reciepeArray[j]}
-              id={props.ingre}
-              onChange={props.handleChange}
-            />
-          </div>
+        <div className={styles.subingreimage}>
+          <label>
+            <img src={Brokoli} className={styles.pizzaingreimage} />
+          </label>
+
+          <input
+            type="checkbox"
+            name={reciepeArray[j]}
+            id={props.ingre}
+            onChange={props.handleChange}
+          />
         </div>
       );
     }
     if (reciepeArray[j] == "Olive") {
       i.push(
-        <div>
-          <img
-            src={Olive}
-            style={{ width: "30%", height: "30%" }}
-            // className={styles.imagespan}
-          />{" "}
-          <div>
-            {reciepeArray[j]}
-            <input
-              type="checkbox"
-              name={reciepeArray[j]}
-              id={props.ingre}
-              onChange={props.handleChange}
+        <div className={styles.subingreimage}>
+          <label>
+            <img
+              src={Olive}
+              className={styles.pizzaingreimage}
+              // className={styles.imagespan}
             />
-          </div>
+          </label>
+          <input
+            type="checkbox"
+            name={reciepeArray[j]}
+            id={props.ingre}
+            onChange={props.handleChange}
+          />
         </div>
       );
     }
     if (reciepeArray[j] == "Tomato") {
       i.push(
-        <div>
-          <img
-            src={Tometo}
-            style={{ width: "30%", height: "30%" }}
-            // className={styles.imagespan}
-          />{" "}
-          <div>
-            {reciepeArray[j]}
-            <input
-              type="checkbox"
-              name={reciepeArray[j]}
-              id={props.ingre}
-              onChange={props.handleChange}
+        <div className={styles.subingreimage}>
+          <label>
+            <img
+              src={Tometo}
+              className={styles.pizzaingreimage}
+              // className={styles.imagespan}
             />
-          </div>
+          </label>
+          <input
+            type="checkbox"
+            name={reciepeArray[j]}
+            id={props.ingre}
+            onChange={props.handleChange}
+          />
         </div>
       );
     }
     if (reciepeArray[j] == "Mushroom") {
       i.push(
-        <div>
-          <img
-            src={Masroom}
-            style={{ width: "30%", height: "30%" }}
-            // className={styles.imagespan}
-          />{" "}
-          <div>
-            {reciepeArray[j]}
-            <input
-              type="checkbox"
-              name={reciepeArray[j]}
-              id={props.ingre}
-              onChange={props.handleChange}
+        <div className={styles.subingreimage}>
+          <label>
+            <img
+              src={Masroom}
+              className={styles.pizzaingreimage}
+              // className={styles.imagespan}
             />
-          </div>
+          </label>
+          <input
+            type="checkbox"
+            name={reciepeArray[j]}
+            id={props.ingre}
+            onChange={props.handleChange}
+          />
         </div>
       );
     }
     if (reciepeArray[j] == "Onion") {
       i.push(
-        <div>
-          <img
-            src={Onion}
-            style={{ width: "30%", height: "30%" }}
-            // className={styles.imagespan}
-          />
-          <div>
-            {reciepeArray[j]}
-            <input
-              type="checkbox"
-              name={reciepeArray[j]}
-              id={props.ingre}
-              onChange={props.handleChange}
+        <div className={styles.subingreimage}>
+          <label>
+            <img
+              src={Onion}
+              className={styles.pizzaingreimage}
+              // className={styles.imagespan}
             />
-          </div>
+          </label>
+
+          <input
+            type="checkbox"
+            name={reciepeArray[j]}
+            id={props.ingre}
+            onChange={props.handleChange}
+          />
         </div>
       );
     }
   }
-  return (
-    <div className={styles.newnavingre}>
-      <div>{i}</div>
-      {/* <div>
-        <p>{props.ingre}</p>
-      </div> */}
-      {/* <div>
-        <input
-          type="checkbox"
-          name={props.ingre}
-          id={props.ingre}
-          onChange={props.handlechange}
-        />
-      </div> */}
-    </div>
-  );
+  return <div className={styles.mainingreimagecheckbox}>{i}</div>;
 };
 
 export default Ingrediants;
