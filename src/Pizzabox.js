@@ -54,7 +54,6 @@ const Pizzabox = (props) => {
           Add+
         </button>
       </div>
-      //{" "}
     </div>
   );
 };
