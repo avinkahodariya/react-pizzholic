@@ -1,9 +1,5 @@
 import React from "react";
-import italian from "../italian.jpg";
-import veg from "../veg.jpg";
-import paneer from "../paneer.jpg";
-import masroom from "../masroom.jpg";
-import pasta from "../pasta.jpg";
+
 import Info from "./Info";
 const Cart = (props) => {
   let data = JSON.parse(localStorage.getItem("data"));

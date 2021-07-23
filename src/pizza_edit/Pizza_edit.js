@@ -1,28 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Nav from "./Nav";
 import Pizzanav from "./Pizzanav";
 import Pizza_Edit_Portion from "./Pizza_Edit_Portion";
 import styles from "./pizzaedit.module.css";
 import Pizzabox from "../Pizzabox";
 import { useLocation } from "react-router-dom";
-import italian from "../italian.jpg";
+
 import Footer from "../Footer";
+// import cartbutton from "./assets/cart-icon.png";
 const Pizza_edit = (props) => {
   const [checkedItems, setCheckedItems] = useState([]);
   const location = useLocation();
-
+  var ingredients = location.state.data.ingredients;
   const handleChange = (event) => {
-    console.log(checkedItems);
+    console.log(checkedItems, event);
+
     if (event.target.checked) {
-      console.log(checkedItems, event.target.name);
-      setCheckedItems([...checkedItems, event.target.name]);
+      console.log(checkedItems);
+      console.log(...checkedItems);
+
+      setCheckedItems([
+        ...checkedItems,
+        [
+          event.target.name,
+          ingredients.filter((e) => {
+            if (event.target.name == e[0]) {
+              // console.log(event.target.name, e[0], e[1]);
+              return e[1];
+            }
+          }),
+        ],
+      ]);
     } else {
       console.log(checkedItems);
       let name = event.target.getAttribute("name");
-      console.log();
 
-      setCheckedItems(checkedItems.filter((item) => item !== name));
+      setCheckedItems(checkedItems.filter((item) => item[0] !== name));
     }
+    console.log(checkedItems);
   };
 
   const AddToCart = () => {
@@ -41,11 +56,22 @@ const Pizza_edit = (props) => {
     localStorage.setItem("data", JSON.stringify(data));
     console.log(data);
   };
-  // {
-  //   window.scrollTo(0, 0);
-  // }
+  {
+    window.scrollTo(0, 0);
+  }
   return (
     <div>
+      <p className={styles.pizzatitle}>
+        Let`s Crete Your Own Pizza
+        <img
+          style={{
+            width: "50px",
+            height: "100%",
+            float: "right",
+            marginRight: "5px",
+          }}
+        />
+      </p>
       <div className={styles.pizzarelative}>
         {" "}
         <Pizza_Edit_Portion reciepe={checkedItems} />

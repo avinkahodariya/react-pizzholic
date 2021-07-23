@@ -12,17 +12,13 @@ const Nav = (props) => {
   };
   return (
     <div>
-      <Ingrediants
-        ingre={props.ingre}
-        image={props.image}
-        handleChange={props.handleChange}
-      />
-      <button className={styles} onClick={redirectToCart}>
+      <Ingrediants ingre={props.ingre} handleChange={props.handleChange} />
+      {/* <button className={styles} onClick={redirectToCart}>
         Buy It...
       </button>
       <button className={styles} onClick={props.AddToCart}>
         add to cart
-      </button>
+      </button> */}
     </div>
   );
 };

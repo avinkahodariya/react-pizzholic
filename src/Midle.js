@@ -2,61 +2,88 @@ import React from "react";
 import Twit from "./Twit";
 import style from "./pizza.module.css";
 import Pizzabox from "./Pizzabox";
-import italian from "./italian.jpg";
-import veg from "./veg.jpg";
-import paneer from "./paneer.jpg";
-import masroom from "./masroom.jpg";
-import pasta from "./pasta.jpg";
-import mexican from "./mexican.jpg";
+import * as Al from "./assets/images";
 
 const Midle = () => {
   const pizza = [
     {
       name: "Italian Pizza",
-      ingredients: ["Tomato", "Brokli", "Onion", "Olive", "Mozzarella"],
+      ingredients: [
+        ["Tomato", Al.Tomato],
+        ["Brokoli", Al.Brokoli],
+        ["Onion", Al.Onion],
+        ["Olive", Al.Olive],
+        ["Mozzarella", Al.Mozzarella],
+      ],
       price: "300",
       id: "1",
-      image: italian,
+      image: Al.italian,
     },
 
     {
       name: "Pasta Pizza",
-      ingredients: ["Capsicum", , "Onion", "Corn", "Tomato", "Mozzarella"],
+      ingredients: [
+        ["Capsicum", Al.Capsicum],
+        ["Onion", Al.Onion],
+        ["Corn", Al.Corn],
+        ["Tomato", Al.Tomato],
+        ["Mozzarella", Al.Mozzarella],
+      ],
       price: "400",
       id: "2",
-      image: pasta,
+      image: Al.pasta,
     },
 
     {
       name: "Mushroom Pizza",
-      ingredients: ["Capsicum", "Onion", "Mushroom", "Mozzarella"],
+      ingredients: [
+        ["Capsicum", Al.Capsicum],
+        ["Onion", Al.Onion],
+        ["Mushroom", Al.Mushroom],
+        ["Mozzarella", Al.Mozzarella],
+      ],
       price: "500",
       id: "3",
-      image: masroom,
+      image: Al.masroom,
     },
 
     {
       name: "Pataka Paneer",
-      ingredients: ["Capsicum", "Olive", "Tometo", "Corn"],
+      ingredients: [
+        ["Capsicum", Al.Capsicum],
+        ["Olive", Al.Olive],
+        ["Tomato", Al.Tomato],
+        ["Corn", Al.Corn],
+      ],
       price: "350",
       id: "4",
-      image: paneer,
+      image: Al.paneer,
     },
 
     {
       name: "Veg Mexican",
-      ingredients: ["Capsicum", "Onion", "Tomato", "Mozzarella"],
+      ingredients: [
+        ["Capsicum", Al.Capsicum],
+        ["Onion", Al.Onion],
+        ["Tomato", Al.Tomato],
+        ["Mozzarella", Al.Mozzarella],
+      ],
       price: "380",
       id: "5",
-      image: mexican,
+      image: Al.mexican,
     },
 
     {
       name: "Veggie Delight",
-      ingredients: ["Capsicum", "Onion", "Tomato", "Mozzarella"],
+      ingredients: [
+        ["Capsicum", Al.Capsicum],
+        ["Onion", Al.Onion],
+        ["Tomato", Al.Tomato],
+        ["Mozzarella", Al.Mozzarella],
+      ],
       price: "280",
       id: "6",
-      image: veg,
+      image: Al.veg,
     },
   ];
 

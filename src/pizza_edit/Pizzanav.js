@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./pizzaedit.module.css";
-import italian from "../italian.jpg";
+// import italian from "../italian.jpg";
 
 const Pizzanav = (props) => {
   return (
