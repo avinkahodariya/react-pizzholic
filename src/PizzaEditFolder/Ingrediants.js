@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./pizzaedit.module.css";
+import Input from "../global/Input";
 
 const Ingrediants = (props) => {
   console.log(props.ingre);
@@ -15,7 +16,7 @@ const Ingrediants = (props) => {
             onClick={props.handleChange}
             className={styles.pizzaingreimage}
           />
-          <input type="checkbox" name={e[0]} onChange={props.handleChange} />
+          <Input type="checkbox" name={e[0]} onChange={props.handleChange} />
         </label>
       </div>
     );

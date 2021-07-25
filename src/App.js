@@ -1,9 +1,8 @@
 import React from "react";
-// import pizza from "./p1.png";
-import Header from "./Header";
-import Midle from "./Midle";
-import Footer from "./Footer";
-import style from "./pizza.module.css";
+import Header from "./compo/Header";
+import Midle from "./compo/Midle";
+import Footer from "./global/Footer";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,11 +13,11 @@ import {
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <Midle />
       <Footer />
-    </div>
+    </>
   );
 }
 

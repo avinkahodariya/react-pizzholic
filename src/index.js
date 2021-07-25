@@ -1,10 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import Pizza_edit from "./pizza_edit/Pizza_edit";
-import Cart from "./pizza_edit/Cart";
-
-import * as Al from "./assets/images.js";
+//import Cart from "./pizzaedit/Cart";
+import PizzaEdit from "./PizzaEditFolder/PizzaEdit";
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,24 +12,20 @@ import {
 } from "react-router-dom";
 
 ReactDOM.render(
-  <div>
+  <>
     <Router>
       <Switch>
         <Route path="/" exact>
           <App />
         </Route>
         <Route path="/pizza" exact>
-          <Pizza_edit />
+          <PizzaEdit />
         </Route>
         <Route path="/cart" exact>
-          <Cart />
+          {/* <Cart /> */}
         </Route>
       </Switch>
     </Router>
-  </div>,
+  </>,
   document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

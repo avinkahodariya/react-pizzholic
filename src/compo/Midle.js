@@ -1,8 +1,8 @@
 import React from "react";
 import Twit from "./Twit";
-import style from "./pizza.module.css";
+import style from "../pizza.module.css";
 import Pizzabox from "./Pizzabox";
-import * as Al from "./assets/images";
+import * as Al from "../assets/images";
 
 const Midle = () => {
   const pizza = [

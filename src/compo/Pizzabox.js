@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./pizza.module.css";
+import styles from "../pizza.module.css";
 import { useHistory } from "react-router-dom";
 
 const Pizzabox = (props) => {
@@ -11,8 +11,6 @@ const Pizzabox = (props) => {
     ingredients: props.ingredients,
     price: props.price,
   };
-
-  console.log(data);
 
   const redirect = () => {
     history.push({ pathname: "/pizza", state: { data } });
