@@ -73,12 +73,12 @@ const PizzaEdit = (props) => {
       </p>
       <div className={styles.pizzarelative}>
         {" "}
-        {/* <EditPortion
+        <EditPortion
           reciepe={checkedItems}
           name={location.state.data.name}
           price={location.state.data.price}
           ingreinfo={location.state.data.ingredients}
-        /> */}
+        />
       </div>
 
       <NavForIngrediants
