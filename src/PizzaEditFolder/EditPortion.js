@@ -1,6 +1,7 @@
 import React from "react";
 import * as All from "../assets/images.js";
 import styles from "./pizzaedit.module.css";
+import EditPizzaInfo from "./EditPizzaInfo";
 
 const Pizza_Edit_Portion = (props) => {
   let reciepeArray = props.reciepe;
@@ -16,13 +17,20 @@ const Pizza_Edit_Portion = (props) => {
       </div>
     );
   });
-
+  console.log(props.ingreinfo);
   return (
-    <div className={styles.PizzaImageMaking}>
-      <img src={All.pizzaedit} className={styles.PizzaMainImage} />
+    <>
+      <div className={styles.PizzaImageMaking}>
+        <img src={All.pizzaedit} className={styles.PizzaMainImage} />
 
-      {i}
-    </div>
+        {i}
+      </div>
+      <EditPizzaInfo
+        name={props.name}
+        price={props.price}
+        ingreinfo={props.ingreinfo}
+      />
+    </>
   );
 };
 

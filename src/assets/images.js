@@ -15,8 +15,10 @@ import pasta from "./pasta.jpg";
 import Tomato from "./Tomato.png";
 import pizzaedit from "./pizza-edit.png";
 import veg from "./veg.jpg";
+import icon from "./icon.png";
 
 export {
+  icon,
   pizzaedit,
   Brokoli,
   Capsicum,

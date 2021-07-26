@@ -258,7 +258,7 @@ input[type="checkbox"] {
   display: none;
 }
 
-input[type="checkbox"]:checked + label:after {
+input[type="checkbox"]:checked + .subingreimage {
   border: red solid 3px;
   border-radius: 1em;
   display: none;
@@ -333,7 +333,7 @@ p {
   text-align: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 8px;
   margin-bottom: 30px;
 }
 .subingreimage {
@@ -341,6 +341,15 @@ p {
   width: 168px;
   background-color: transparent;
   border-radius: 1em;
+  background: #313131;
+  opacity: 1;
+  transform: scale(0.8);
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.74);
 }
 .subingreimage:hover {
+  border: solid 2px;
+  border-color: rgb(70, 110, 30);
+  opacity: 0.95;
+  transform: scale(0.87);
+  transition: 1.5s;
 }
