@@ -25,11 +25,11 @@ const Pizza_Edit_Portion = (props) => {
 
         {i}
       </div>
-      <EditPizzaInfo
+      {/* <EditPizzaInfo
         name={props.name}
         price={props.price}
         ingreinfo={props.ingreinfo}
-      />
+      /> */}
     </>
   );
 };
