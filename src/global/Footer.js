@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./pizza.module.css";
+import style from "../pizza.module.css";
 
 const Footer = () => {
   return (
