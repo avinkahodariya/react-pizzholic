@@ -8,26 +8,13 @@ const SignIn = () => {
     <>
       <div className={styles.login}>
         <div className={styles.title}>Sign-in</div>
-        <Input
-          type="text"
-          name="Username"
-          value={usernamesignin}
-          change={setsusersignin}
-        />
-        <Input
-          type="email"
-          name="Email"
-          value={emailsignin}
-          change={setsemailsignin}
-        />
-        <Input
-          type="password"
-          name="Password"
-          value={passwordsignin}
-          change={setspasswordsignin}
-        />
-
-        <Button button_name="Sign-in" storedata={storedata} />
+        <p>USERNAME</p>
+        <Input type="text" name="Username" />
+        <p>EMAIL</p>
+        <Input type="email" name="Email" />
+        <p>PASSWORD</p>
+        <Input type="password" name="Password" />
+        <Button button_name="Sign-in" name="Sign-in" />
         {/* {check && <h2>please enter differant username or email</h2>} */}
       </div>
     </>
