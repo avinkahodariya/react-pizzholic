@@ -8,6 +8,18 @@
 * {
   box-sizing: border-box;
 }
+
+.center {
+  margin: 0 auto;
+  width: 10%;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
 body {
   height: 100vh;
 }
@@ -267,7 +279,7 @@ input[type="checkbox"]:checked + .subingreimage {
 .PizzaMainImage {
   box-sizing: border-box;
   width: 500px;
-  height: 500px;
+  height: 100%;
   margin: 0 auto;
   position: absolute;
   transform: rotateX(60deg);
@@ -277,7 +289,7 @@ input[type="checkbox"]:checked + .subingreimage {
 }
 .PizzaImageMaking {
   width: 500px;
-  height: 500px;
+  height: 350px;
   margin: 0 auto;
 }
 .pizzarelative {
@@ -308,7 +320,7 @@ p {
 .absolute {
   box-sizing: border-box;
   width: 500px;
-  height: 500px;
+  height: 100%;
   margin: 0 auto;
   position: absolute;
   transform: rotateX(60deg);
@@ -318,7 +330,7 @@ p {
 }
 .imagespan {
   width: 500px;
-  height: 500px;
+  height: 100%;
   animation-name: animation;
   animation-duration: 2s;
 }

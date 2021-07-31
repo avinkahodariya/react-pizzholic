@@ -1,12 +1,8 @@
-import userpassword from "./userpassword";
-import useremail from "./useremail";
-import username from "./username";
+import register from "./register";
 import submit from "./submit";
+import addcart from "./addcart";
+import login from "./login";
 import { combineReducers } from "redux";
-const rootReducer = combineReducers({
-  userpassword,
-  useremail,
-  username,
-});
+const rootReducer = combineReducers({ register, login });
 
 export default rootReducer;

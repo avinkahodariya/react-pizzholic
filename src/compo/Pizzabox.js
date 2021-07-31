@@ -13,7 +13,7 @@ const Pizzabox = (props) => {
   };
 
   const redirect = () => {
-    history.push({ pathname: "/pizza", state: { data } });
+    history.push({ pathname: "/pizzaedit", state: { data } });
   };
 
   return (

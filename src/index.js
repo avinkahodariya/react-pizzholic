@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import Login from "./login/Login";
-import Signin from "./login/SignIn";
+import Signin from "./login/Signin";
 import PizzaEdit from "./PizzaEditFolder/PizzaEdit";
 import styles from "./css/login.module.css";
 import {

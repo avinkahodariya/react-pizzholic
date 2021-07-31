@@ -1,16 +1,31 @@
 import React, { useState, useEffect } from "react";
 import NavForIngrediants from "./NavForIngrediants";
+import { connect } from "react-redux";
 import EditPortion from "./EditPortion";
 import styles from "./pizzaedit.module.css";
 import Pizzabox from "../compo/Pizzabox";
 import { useLocation } from "react-router-dom";
 import * as All from "../assets/images";
 import Footer from "../global/Footer";
+import Button from "../global/Button";
 // import cartbutton from "./assets/cart-icon.png";
+import addToCart from "./Function/addToCart";
 const PizzaEdit = (props) => {
   const [checkedItems, setCheckedItems] = useState([]);
   const location = useLocation();
   var ingredients = location.state.data.ingredients;
+  console.log(props.username);
+  const data = {
+    ingredients: location.state.data.ingredients,
+    price: location.state.data.price,
+    name: location.state.data.name,
+    id: location.state.data.id,
+    price: location.state.data.price,
+    image: location.state.data.image,
+    reciepe: checkedItems,
+    username: props.username,
+  };
+
   const handleChange = (event) => {
     console.log(checkedItems, event);
 
@@ -37,27 +52,9 @@ const PizzaEdit = (props) => {
     }
   };
 
-  const AddToCart = () => {
-    console.log(location.state.data.id, location.state.data.price);
-    let data = JSON.parse(localStorage.getItem("data"));
-    if (data == undefined || data == null) {
-      data = [];
-    }
-    data.push({
-      ingredients: location.state.data.ingredients,
-      price: location.state.data.price,
-      name: location.state.data.name,
-      id: location.state.data.id,
-    });
-    localStorage.setItem("data", JSON.stringify(data));
-    console.log(data);
-  };
-  {
-    window.scrollTo(0, 0);
-  }
   console.log(location.state.data.ingredients, "dfg");
   return (
-    <div>
+    <div className={styles.flex}>
       <p className={styles.pizzatitle}>
         Let`s Crete Your Own Pizza
         <img
@@ -68,6 +65,7 @@ const PizzaEdit = (props) => {
             float: "right",
             marginRight: "5px",
             backdropFilter: "bllur(10px)",
+            backgroundColor: "#313131",
           }}
         />
       </p>
@@ -88,7 +86,17 @@ const PizzaEdit = (props) => {
         id={location.state.data.id}
         image={location.state.data.image}
         handleChange={handleChange}
-        AddToCart={AddToCart}
+      />
+
+      <Button
+        name={"Buy Now..."}
+        className={styles.center}
+        Handleclick={props.buynow}
+      />
+      <Button
+        name={"Add To Cart.."}
+        className={styles.center}
+        Handleclick={() => addToCart(data)}
       />
 
       <Footer />
@@ -96,4 +104,10 @@ const PizzaEdit = (props) => {
   );
 };
 
-export default PizzaEdit;
+const mapstateToprops = (state) => {
+  return {
+    username: state.login.username,
+  };
+};
+
+export default connect(mapstateToprops)(PizzaEdit);
