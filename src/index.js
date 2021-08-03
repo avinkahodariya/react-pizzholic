@@ -47,6 +47,9 @@ ReactDOM.render(
           <Route path="/pizzaedit" exact>
             <PizzaEdit />
           </Route>
+          <Route path="/pizzaedit/:id" exact>
+            <PizzaEdit />
+          </Route>
           <Route path="/cart" exact></Route>
         </Switch>
       </Router>
