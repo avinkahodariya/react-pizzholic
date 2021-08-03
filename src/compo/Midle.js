@@ -7,6 +7,9 @@ import PizzaArray from "../global/PizzaArray";
 
 const Midle = () => {
   const pizza = PizzaArray;
+  const redirectFunction = (id) => {
+    history.push(`/pizzaedit/${id}`);
+  };
 
   return (
     <div className={style.midleflex}>
@@ -19,6 +22,7 @@ const Midle = () => {
               name={e.name}
               id={e.id}
               image={e.image}
+              redirectFunction={redirectFunction}
             />
           );
         })}

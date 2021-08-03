@@ -27,8 +27,9 @@ const Login = (props) => {
   };
 
   const redirect = () => {
-    console.log("as");
-    history.push({ pathname: "/pizzas", state: { data } });
+    // console.log("as");
+    // history.push({ pathname: "/pizzas", state: { data } });
+    // <Redirect path="/pizzas">
   };
 
   const login = (data) => {
