@@ -270,10 +270,15 @@ input[type="checkbox"] {
   display: none;
 }
 
+/* input[id="cb1"]:checked + .border {
+  border: solid 2px rgba(71, 11, 238, 0.959);
+  border-radius: 1px;
+} */
+
 input[type="checkbox"]:checked + .subingreimage {
   border: red solid 3px;
-  border-radius: 1em;
-  display: none;
+
+  /* display: none; */
 }
 
 .PizzaMainImage {
@@ -364,4 +369,16 @@ p {
   opacity: 0.95;
   transform: scale(0.87);
   transition: 1.5s;
+}
+
+.subingreimage {
+  border: red solid 3px;
+
+  /* display: none; */
+}
+
+
+
+.info{
+  bord
 }
