@@ -9,6 +9,8 @@ const addToCart = (data, props) => {
     item.push(data);
     localStorage.setItem("item", JSON.stringify(item));
   }
+
+  props.addcart(data);
 };
 
 export default addToCart;

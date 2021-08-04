@@ -11,6 +11,7 @@ const input = (props) => {
         checked={props.checked}
         className={props.classname}
         onChange={props.onChange}
+        onClick={props.onClick}
       />
     </>
   );

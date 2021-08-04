@@ -4,24 +4,23 @@ import { connect } from "react-redux";
 import EditPortion from "./EditPortion";
 import styles from "./pizzaedit.module.css";
 import Pizzabox from "../compo/Pizzabox";
-import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import * as All from "../assets/images";
 import Footer from "../global/Footer";
 import Button from "../global/Button";
-// import cartbutton from "./assets/cart-icon.png";
-import addToCart from "./Function/addToCart";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+
+import { useParams } from "react-router-dom";
+
 const PizzaEdit = (props) => {
   const [checkedItems, setCheckedItems] = useState([]);
-  let { id1 } = useParams();
+  var { id } = useParams();
+  let history = useHistory();
   var pizzaid = [];
-  console.log(id1);
 
   let pizaadata = JSON.parse(localStorage.getItem("pizzastore"))[0];
   console.log(JSON.parse(localStorage.getItem("pizzastore")));
   pizzaid = pizaadata.filter((e) => {
-    // console.log(id, e);
-    if (e.id == id1) {
+    if (e.id == id) {
       return e;
     }
     console.log(pizzaid);
@@ -29,8 +28,6 @@ const PizzaEdit = (props) => {
   console.log(pizzaid);
 
   console.log(pizzaid);
-
-  // const location = useLocation();
 
   const data = {
     ingredients: pizzaid[0].ingredients,
@@ -76,6 +73,24 @@ const PizzaEdit = (props) => {
     }
   };
 
+  const addToCart = (data) => {
+    let item = JSON.parse(localStorage.getItem("item"));
+    if (item == null) {
+      item = [];
+      item.push(data);
+      console.log(item);
+      localStorage.setItem("item", JSON.stringify(item));
+    } else {
+      item.push(data);
+      localStorage.setItem("item", JSON.stringify(item));
+    }
+
+    props.addcart(data);
+  };
+  const gotocart = () => {
+    console.log("asdfg");
+    history.push(`/cart`);
+  };
   return (
     <>
       <div className={styles.flex}>
@@ -91,6 +106,7 @@ const PizzaEdit = (props) => {
               backdropFilter: "bllur(10px)",
               backgroundColor: "#313131",
             }}
+            onClick={gotocart}
           />
         </p>
         <div className={styles.pizzarelative}>
@@ -132,7 +148,18 @@ const PizzaEdit = (props) => {
 const mapstateToprops = (state) => {
   return {
     username: state.login.username,
+    item: state.addcart.item,
+  };
+};
+const mapDispatchToprops = (dispatch) => {
+  return {
+    addcart: (payload) => {
+      dispatch({
+        type: "addcart",
+        payload,
+      });
+    },
   };
 };
 
-export default connect(mapstateToprops)(PizzaEdit);
+export default connect(mapstateToprops, mapDispatchToprops)(PizzaEdit);

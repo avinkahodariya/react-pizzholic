@@ -4,8 +4,10 @@ import style from "../pizza.module.css";
 import Pizzabox from "./Pizzabox";
 import * as Al from "../assets/images";
 import PizzaArray from "../global/PizzaArray";
+import { useHistory } from "react-router-dom";
 
 const Midle = () => {
+  const history = useHistory();
   const pizza = PizzaArray;
   const redirectFunction = (id) => {
     history.push(`/pizzaedit/${id}`);

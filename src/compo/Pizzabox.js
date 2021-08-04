@@ -16,27 +16,27 @@ const Pizzabox = (props) => {
     ingredients: props.ingredients,
     price: props.price,
   };
-  let history = useHistory();
-  const redirect = () => {
-    if (props.id == "1") {
-      history.push("/pizzaedit/1");
-    }
-    if (props.id == "2") {
-      history.push("/pizzaedit/2");
-    }
-    if (props.id == "3") {
-      history.push("/pizzaedit/3");
-    }
-    if (props.id == "4") {
-      history.push("/pizzaedit/4");
-    }
-    if (props.id == "5") {
-      history.push("/pizzaedit/5");
-    }
-    if (props.id == "6") {
-      history.push("/pizzaedit/6");
-    }
-  };
+  // let history = useHistory();
+  // const redirect = () => {
+  //   if (props.id == "1") {
+  //     history.push("/pizzaedit/1");
+  //   }
+  //   if (props.id == "2") {
+  //     history.push("/pizzaedit/2");
+  //   }
+  //   if (props.id == "3") {
+  //     history.push("/pizzaedit/3");
+  //   }
+  //   if (props.id == "4") {
+  //     history.push("/pizzaedit/4");
+  //   }
+  //   if (props.id == "5") {
+  //     history.push("/pizzaedit/5");
+  //   }
+  //   if (props.id == "6") {
+  //     history.push("/pizzaedit/6");
+  //   }
+  // };
 
   return (
     <>

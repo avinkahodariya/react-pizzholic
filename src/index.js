@@ -5,6 +5,7 @@ import Login from "./login/Login";
 import Signin from "./login/Signin";
 import PizzaEdit from "./PizzaEditFolder/PizzaEdit";
 import styles from "./css/login.module.css";
+import Cart from "./PizzaEditFolder/Cart";
 import {
   BrowserRouter as Router,
   Switch,
@@ -50,7 +51,9 @@ ReactDOM.render(
           <Route path="/pizzaedit/:id" exact>
             <PizzaEdit />
           </Route>
-          <Route path="/cart" exact></Route>
+          <Route path="/cart" exact>
+            <Cart />
+          </Route>
         </Switch>
       </Router>
     </Provider>
