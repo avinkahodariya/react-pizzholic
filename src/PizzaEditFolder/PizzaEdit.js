@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import EditPortion from "./EditPortion";
 import styles from "./pizzaedit.module.css";
 import Pizzabox from "../compo/Pizzabox";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import * as All from "../assets/images";
 import Footer from "../global/Footer";
 import Button from "../global/Button";
@@ -13,8 +13,10 @@ import { useParams } from "react-router-dom";
 
 const PizzaEdit = (props) => {
   const [checkedItems, setCheckedItems] = useState([]);
-  var { id } = useParams();
+  var { id, login } = useParams();
+  console.log(useParams());
   let history = useHistory();
+  var location = useLocation();
   var pizzaid = [];
 
   let pizaadata = JSON.parse(localStorage.getItem("pizzastore"))[0];
@@ -23,11 +25,7 @@ const PizzaEdit = (props) => {
     if (e.id == id) {
       return e;
     }
-    console.log(pizzaid);
   });
-  console.log(pizzaid);
-
-  console.log(pizzaid);
 
   const data = {
     ingredients: pizzaid[0].ingredients,
@@ -36,7 +34,7 @@ const PizzaEdit = (props) => {
     id: pizzaid[0].id,
     image: pizzaid[0].image,
     reciepe: checkedItems,
-    username: props.username,
+    username: login,
   };
 
   var ingredients = pizzaid[0].ingredients;
@@ -45,7 +43,7 @@ const PizzaEdit = (props) => {
   var id = pizzaid[0].id;
   var image = pizzaid[0].image;
   var reciepe = checkedItems;
-  var username = props.username;
+  var username = login;
 
   const handleChange = (event) => {
     console.log(checkedItems, event);
@@ -74,6 +72,17 @@ const PizzaEdit = (props) => {
   };
 
   const addToCart = (data) => {
+    // console.log("asdffg", props.username, login);
+    var check = props.user.filter((e) => {
+      if (e.username == login) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    if (check == false) {
+      history.push(`/`);
+    }
     let item = JSON.parse(localStorage.getItem("item"));
     if (item == null) {
       item = [];
@@ -87,9 +96,33 @@ const PizzaEdit = (props) => {
 
     props.addcart(data);
   };
-  const gotocart = () => {
-    console.log("asdfg");
-    history.push(`/cart`);
+  const gotocart = (data) => {
+    // console.log("asdfg", props.item);
+    // if (
+    //   props.item == null ||
+    //   props.item == undefined ||
+    //   props.item.length == 0
+    // ) {
+    //   let item = JSON.parse(localStorage.getItem("item"));
+    //   if (item == null) {
+    //     item = [];
+    //     item.push(data);
+    //     console.log(item);
+    //     localStorage.setItem("item", JSON.stringify(item));
+    //   } else {
+    //     item.push(data);
+    //     localStorage.setItem("item", JSON.stringify(item));
+    //   }
+    //   console.log("ghj", item, location);
+    //   var find = item.filter((e) => {
+    //     console.log("sdfghyu", e.username, login);
+    //     if ((e.username = login)) {
+    //       return e;
+    //     }
+    //   });
+    // }
+    // console.log("e", find);
+    history.push(`${location.pathname}/cart`);
   };
   return (
     <>
@@ -149,6 +182,7 @@ const mapstateToprops = (state) => {
   return {
     username: state.login.username,
     item: state.addcart.item,
+    user: state.register.user,
   };
 };
 const mapDispatchToprops = (dispatch) => {

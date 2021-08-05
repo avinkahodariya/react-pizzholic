@@ -1,7 +1,7 @@
 import React from "react";
 
 const Info = (props) => {
-  console.log(props.ingrediants);
+  // console.log(props.ingrediants);
 
   return (
     <div>

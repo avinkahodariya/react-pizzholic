@@ -21,6 +21,7 @@ const Login = (props) => {
   const [password, setpassword] = useState("");
   const [correct, setcorrect] = useState(false);
   let history = useHistory();
+
   const data = {
     username,
     password,
@@ -42,11 +43,11 @@ const Login = (props) => {
       }
     });
     console.log(find);
+
     if (find !== undefined) {
       props.loginreducer(data);
-      setcorrect(true);
+      history.push(`/${data.username}/pizza`);
     } else {
-      setcorrect(false);
     }
   };
 
@@ -92,11 +93,11 @@ const Login = (props) => {
             </Route>
           </div>
         </Switch>
-        <Switch>
+        {/* <Switch>
           <Route path="/" exact>
             {correct && <Redirect to="pizza" />}
           </Route>
-        </Switch>
+        </Switch> */}
       </div>
     </>
   );

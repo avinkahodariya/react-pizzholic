@@ -21,7 +21,9 @@ ReactDOM.render(
     <Provider store={store}>
       <Router>
         <Switch>
+          {" "}
           <Route path="/" exact>
+            {" "}
             <div className={styles.main}>
               <Login />
 
@@ -31,7 +33,16 @@ ReactDOM.render(
               </Link>
             </div>
           </Route>
+          <Route path="//:login" exact>
+            <div className={styles.main}>
+              <Login />
 
+              <Link to="/signin" style={{ textDecoration: "none" }}>
+                {" "}
+                <button>SIGN-IN</button>
+              </Link>
+            </div>
+          </Route>
           <Route path="/signin" exact>
             <div className={styles.main}>
               <Signin />
@@ -41,17 +52,16 @@ ReactDOM.render(
               </Link>
             </div>
           </Route>
-
-          <Route path="/pizza" exact>
+          <Route path="/:login/pizza" exact>
             <App />
           </Route>
-          <Route path="/pizzaedit" exact>
+          <Route path="/:login/pizza/pizzaedit" exact>
             <PizzaEdit />
           </Route>
-          <Route path="/pizzaedit/:id" exact>
+          <Route path="/:login/pizza/pizzaedit/:id" exact>
             <PizzaEdit />
           </Route>
-          <Route path="/cart" exact>
+          <Route path="/:login/pizza/pizzaedit/:id/cart" exact>
             <Cart />
           </Route>
         </Switch>
