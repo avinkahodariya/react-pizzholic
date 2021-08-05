@@ -4,9 +4,20 @@ import style from "../pizza.module.css";
 import Pizzabox from "./Pizzabox";
 import * as Al from "../assets/images";
 import PizzaArray from "../global/PizzaArray";
+import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 const Midle = () => {
+  const history = useHistory();
+  const location = useLocation();
+
+  console.log(location);
   const pizza = PizzaArray;
+  const redirectFunction = (id) => {
+    console.log(location.pathname, id);
+
+    history.push(`${location.pathname}/pizzaedit/${id}`);
+  };
 
   return (
     <div className={style.midleflex}>
@@ -19,6 +30,7 @@ const Midle = () => {
               name={e.name}
               id={e.id}
               image={e.image}
+              redirectFunction={redirectFunction}
             />
           );
         })}

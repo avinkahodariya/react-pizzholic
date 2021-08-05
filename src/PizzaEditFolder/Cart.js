@@ -1,48 +1,41 @@
 import React from "react";
-
+import { useLocation } from "react-router-dom";
 import Info from "./Info";
+import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
+
 const Cart = (props) => {
-  let data = JSON.parse(localStorage.getItem("data"));
-  console.log(data);
-  var id1 = 0;
-  var id2 = 0,
-    id3 = 0,
-    id4 = 0,
-    id5 = 0,
-    id6 = 0;
+  const { login } = useParams();
+  console.log(props.username, props.item);
+  // console.log(props.item, item);
+  var find = null;
+  if (props.item == null || props.item == undefined || props.item.length == 0) {
+    console.log(props.item);
+    let item = JSON.parse(localStorage.getItem("item"));
+    console.log(item);
+    var find = item.filter((e) => {
+      console.log(e.username, login);
+      if (e.username == login) {
+        return e;
+      }
+      console.log(find);
+    });
+    props.addcart(find);
+    console.log(props.item, item);
+  }
 
-  data.map((e) => {
-    switch (e.id) {
-      case "1":
-        id1++;
-        break;
-      case "2":
-        id2++;
-        console.log(id2);
-        break;
-      case "3":
-        id3++;
-        break;
-      case "4":
-        id4++;
-        break;
-      case "5":
-        id5++;
-        break;
-      case "6":
-        id6++;
-        break;
-    }
-  });
-
-  var idArray = [];
-  console.log(id2);
-  idArray.push({ id1, id2, id3, id4, id5, id6 });
-  console.log(idArray);
+  let item = find;
 
   return (
     <div>
-      {data.map((e) => {
+      {item.map((e) => {
+        var reciep = [];
+        for (var i = 0; i < e.reciepe.length; i++) {
+          // console.log(e, e.name, e.reciepe[i]);
+          reciep.push(e.reciepe[i][0]);
+          // console.log(reciep);
+        }
+
         return (
           <div>
             <img
@@ -53,7 +46,8 @@ const Cart = (props) => {
                 height: "200px",
               }}
             />
-            <Info ingrediants={e.ingrediants} name={e.name} price={e.price} />
+            {}
+            <Info ingrediants={reciep} name={e.name} price={e.price} />
           </div>
         );
       })}
@@ -61,7 +55,25 @@ const Cart = (props) => {
   );
 };
 
-export default Cart;
+const mapstateToprops = (state) => {
+  return {
+    username: state.login.username,
+    item: state.addcart.item,
+  };
+};
+
+const mapDispatchToprops = (dispatch) => {
+  return {
+    addcart: (payload) => {
+      dispatch({
+        type: "addcart",
+        payload,
+      });
+    },
+  };
+};
+
+export default connect(mapstateToprops, mapDispatchToprops)(Cart);
 
 // {
 //   for(i=0;i>6;i++)
