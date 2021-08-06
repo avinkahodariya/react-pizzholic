@@ -1,7 +1,7 @@
 import React from "react";
 
 const EditPizzaInfo = (props) => {
-  console.log(props.ingreinfo);
+  // console.log(props.ingreinfo);
   return (
     <>
       <div>

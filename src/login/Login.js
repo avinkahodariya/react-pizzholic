@@ -35,13 +35,25 @@ const Login = (props) => {
 
   const login = (data) => {
     console.log("user", props.user);
-    var find = props.user.find((e) => {
+
+    let reg = JSON.parse(localStorage.getItem("reg"));
+    var find = reg.find((e) => {
       if (e.username == data.username && e.password == data.password) {
+        props.loginreducer(e.username);
+        console.log(data.username);
         return true;
       } else {
         return false;
       }
     });
+
+    // var find = props.user.find((e) => {
+    //   if (e.username == data.username && e.password == data.password) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // });
     console.log(find);
 
     if (find !== undefined) {
@@ -106,6 +118,7 @@ const Login = (props) => {
 const mapstateToprops = (state) => {
   return {
     user: state.register.user,
+    username: state.login.username,
   };
 };
 

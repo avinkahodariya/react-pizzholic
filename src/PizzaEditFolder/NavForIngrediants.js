@@ -5,7 +5,7 @@ import Cart from "./Cart";
 import { useHistory } from "react-router-dom";
 const Nav = (props) => {
   let history = useHistory();
-  console.log(props.ingre);
+  // console.log(props.ingre);
 
   const redirectToCart = () => {
     history.push({ pathname: "/cart" });

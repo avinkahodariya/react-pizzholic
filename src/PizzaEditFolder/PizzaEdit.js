@@ -20,7 +20,7 @@ const PizzaEdit = (props) => {
   var pizzaid = [];
 
   let pizaadata = JSON.parse(localStorage.getItem("pizzastore"))[0];
-  console.log(JSON.parse(localStorage.getItem("pizzastore")));
+  // console.log(JSON.parse(localStorage.getItem("pizzastore")));
   pizzaid = pizaadata.filter((e) => {
     if (e.id == id) {
       return e;
@@ -72,14 +72,26 @@ const PizzaEdit = (props) => {
   };
 
   const addToCart = (data) => {
-    // console.log("asdffg", props.username, login);
-    var check = props.user.filter((e) => {
+    console.log("asdffg", props.username, props.user, login);
+    if (props.user.length == 0) {
+      let reg = JSON.parse(localStorage.getItem("reg"));
+      var a = reg.find((e) => {
+        if (e.username == login) {
+          return e;
+        }
+      });
+      console.log(a);
+      props.register(a);
+    }
+    var check = props.user.find((e) => {
+      console.log(e.username, login);
       if (e.username == login) {
         return true;
       } else {
         return false;
       }
     });
+    console.log(check);
     if (check == false) {
       history.push(`/`);
     }
@@ -96,32 +108,8 @@ const PizzaEdit = (props) => {
 
     props.addcart(data);
   };
-  const gotocart = (data) => {
-    // console.log("asdfg", props.item);
-    // if (
-    //   props.item == null ||
-    //   props.item == undefined ||
-    //   props.item.length == 0
-    // ) {
-    //   let item = JSON.parse(localStorage.getItem("item"));
-    //   if (item == null) {
-    //     item = [];
-    //     item.push(data);
-    //     console.log(item);
-    //     localStorage.setItem("item", JSON.stringify(item));
-    //   } else {
-    //     item.push(data);
-    //     localStorage.setItem("item", JSON.stringify(item));
-    //   }
-    //   console.log("ghj", item, location);
-    //   var find = item.filter((e) => {
-    //     console.log("sdfghyu", e.username, login);
-    //     if ((e.username = login)) {
-    //       return e;
-    //     }
-    //   });
-    // }
-    // console.log("e", find);
+
+  const gotocart = () => {
     history.push(`${location.pathname}/cart`);
   };
   return (
@@ -190,6 +178,12 @@ const mapDispatchToprops = (dispatch) => {
     addcart: (payload) => {
       dispatch({
         type: "addcart",
+        payload,
+      });
+    },
+    register: (payload) => {
+      dispatch({
+        type: "register",
         payload,
       });
     },

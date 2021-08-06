@@ -5,7 +5,7 @@ import EditPizzaInfo from "./EditPizzaInfo";
 
 const Pizza_Edit_Portion = (props) => {
   let reciepeArray = props.reciepe;
-  console.log(reciepeArray);
+  // console.log(reciepeArray);
 
   var i = [];
 
@@ -17,7 +17,7 @@ const Pizza_Edit_Portion = (props) => {
       </div>
     );
   });
-  console.log(props.ingreinfo);
+
   return (
     <>
       <div className={styles.PizzaImageMaking}>

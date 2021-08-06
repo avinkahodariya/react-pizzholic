@@ -31,6 +31,12 @@ const register = (state = intialstate, action) => {
           return { ...state, found: true };
         } else {
           console.log("a is not fohnf");
+          let reg = JSON.parse(localStorage.getItem("reg"));
+          if (reg == null || reg == undefined) {
+            reg = [];
+            reg.push(action.payload);
+            localStorage.setItem("reg", JSON.stringify(reg));
+          }
           state.user.push(action.payload);
 
           return {
@@ -41,6 +47,12 @@ const register = (state = intialstate, action) => {
         }
       } else {
         state.user.push(action.payload);
+        let reg = JSON.parse(localStorage.getItem("reg"));
+        if (reg == null || reg == undefined) {
+          reg = [];
+          reg.push(action.payload);
+          localStorage.setItem("reg", JSON.stringify(reg));
+        }
 
         return { ...state, user: state.user, found: false };
       }

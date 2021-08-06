@@ -8,6 +8,7 @@ const Cart = (props) => {
   const { login } = useParams();
   console.log(props.username, props.item);
   // console.log(props.item, item);
+  let item;
   var find = null;
   if (props.item == null || props.item == undefined || props.item.length == 0) {
     console.log(props.item);
@@ -23,8 +24,8 @@ const Cart = (props) => {
     props.addcart(find);
     console.log(props.item, item);
   }
-
-  let item = find;
+  console.log(find);
+  item = find;
 
   return (
     <div>

@@ -3,7 +3,7 @@ import styles from "./pizzaedit.module.css";
 import Input from "../global/Input";
 
 const Ingrediants = (props) => {
-  console.log(props.ingre);
+  // console.log(props.ingre);
   let i = [];
 
   i = props.ingre.map((e) => {
