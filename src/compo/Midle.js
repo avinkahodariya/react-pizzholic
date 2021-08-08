@@ -11,18 +11,15 @@ const Midle = () => {
   const history = useHistory();
   const location = useLocation();
 
-  console.log(location);
-  const pizza = PizzaArray;
+  // const pizza = PizzaArray;
   const redirectFunction = (id) => {
-    console.log(location.pathname, id);
-
     history.push(`${location.pathname}/pizzaedit/${id}`);
   };
 
   return (
     <div className={style.midleflex}>
       <div className={style.Midle}>
-        {pizza.map((e) => {
+        {PizzaArray.map((e) => {
           return (
             <Pizzabox
               ingredients={e.ingredients}

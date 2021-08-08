@@ -7,6 +7,7 @@ import {
   Link,
 } from "react-router-dom/cjs/react-router-dom.min";
 import PizzaEdit from "../PizzaEditFolder/PizzaEdit";
+import Button from "../global/Button";
 
 const Pizzabox = (props) => {
   const data = {
@@ -16,27 +17,6 @@ const Pizzabox = (props) => {
     ingredients: props.ingredients,
     price: props.price,
   };
-  // let history = useHistory();
-  // const redirect = () => {
-  //   if (props.id == "1") {
-  //     history.push("/pizzaedit/1");
-  //   }
-  //   if (props.id == "2") {
-  //     history.push("/pizzaedit/2");
-  //   }
-  //   if (props.id == "3") {
-  //     history.push("/pizzaedit/3");
-  //   }
-  //   if (props.id == "4") {
-  //     history.push("/pizzaedit/4");
-  //   }
-  //   if (props.id == "5") {
-  //     history.push("/pizzaedit/5");
-  //   }
-  //   if (props.id == "6") {
-  //     history.push("/pizzaedit/6");
-  //   }
-  // };
 
   return (
     <>
@@ -65,26 +45,13 @@ const Pizzabox = (props) => {
           <p className={styles.price}>
             <p className={styles.rupi}> {props.price}</p>
           </p>
-          <button
+          <Button
             className={styles.add}
             onClick={() => props.redirectFunction(props.id)}
-          >
-            {/* <Link to="/{props.id}" /> */}
-            Add+
-          </button>
+            name="Add+"
+          />
         </div>
       </div>
-      {/* <Link to="/pizzaedit"></Link>
-      <Link to="/1"></Link>
-      <Link to="/2"></Link>
-      <Link to="/3"></Link>
-      <Link to="/4"></Link>
-      <Link to="/5"></Link>
-      <Link to="/6"></Link> */}
-      {/*     
-        <Route path="/pizzaedit/:id" exact>
-          <PizzaEdit />
-        </Route> */}
     </>
   );
 };

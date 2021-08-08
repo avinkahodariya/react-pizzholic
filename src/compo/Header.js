@@ -1,6 +1,5 @@
 import React from "react";
 import style from "../pizza.module.css";
-// import Header from "../global/Header";
 const Header = () => {
   return (
     <>

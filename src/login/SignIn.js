@@ -59,7 +59,6 @@ const Signin = (props) => {
           name="Sign-in"
           Handleclick={() => props.register(data)}
         />
-        {/* {console.log(username, email, password)} */}
         {props.found && <h4>Please enter differant username or email</h4>}
       </div>
     </>
@@ -75,8 +74,6 @@ const mapstateToprops = (state) => {
 const mapDispatchToprops = (dispatch) => {
   return {
     register: (payload) => {
-      console.log("dfghjk", payload);
-
       dispatch({
         type: "Register",
         payload,

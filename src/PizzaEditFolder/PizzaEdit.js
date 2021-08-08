@@ -14,13 +14,11 @@ import { useParams } from "react-router-dom";
 const PizzaEdit = (props) => {
   const [checkedItems, setCheckedItems] = useState([]);
   var { id, login } = useParams();
-  console.log(useParams());
   let history = useHistory();
   var location = useLocation();
   var pizzaid = [];
 
   let pizaadata = JSON.parse(localStorage.getItem("pizzastore"))[0];
-  // console.log(JSON.parse(localStorage.getItem("pizzastore")));
   pizzaid = pizaadata.filter((e) => {
     if (e.id == id) {
       return e;
@@ -80,18 +78,15 @@ const PizzaEdit = (props) => {
           return e;
         }
       });
-      console.log(a);
       props.register(a);
     }
     var check = props.user.find((e) => {
-      console.log(e.username, login);
       if (e.username == login) {
         return true;
       } else {
         return false;
       }
     });
-    console.log(check);
     if (check == false) {
       history.push(`/`);
     }
@@ -99,7 +94,6 @@ const PizzaEdit = (props) => {
     if (item == null) {
       item = [];
       item.push(data);
-      console.log(item);
       localStorage.setItem("item", JSON.stringify(item));
     } else {
       item.push(data);
@@ -112,6 +106,9 @@ const PizzaEdit = (props) => {
   const gotocart = () => {
     history.push(`${location.pathname}/cart`);
   };
+
+  useEffect(() => {});
+
   return (
     <>
       <div className={styles.flex}>

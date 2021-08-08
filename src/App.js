@@ -11,24 +11,22 @@ import {
   Redirect,
 } from "react-router-dom";
 import PizzaArray from "./global/PizzaArray";
+import { useEffect } from "react";
 
 const App = () => {
-  // var pizza = PizzaArray;
-  // console.log(pizza);
+  useEffect(() => {
+    console.log("componnat mounted");
 
-  const localstorage = () => {
-    console.log(PizzaArray);
     let pizzastore = JSON.parse(localStorage.getItem("pizzastore"));
     if (pizzastore == null || pizzastore == undefined) {
       let pizzastore = [];
       pizzastore.push(PizzaArray);
       localStorage.setItem("pizzastore", JSON.stringify(pizzastore));
     }
-    console.log(JSON.parse(localStorage.getItem("pizzastore")));
-  };
+  }, []);
+
   return (
     <>
-      {localstorage()}
       <Header />
       <Midle />
       <Footer />

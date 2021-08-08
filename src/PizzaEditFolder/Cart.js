@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import Info from "./Info";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const Cart = (props) => {
   const { login } = useParams();
@@ -11,9 +12,7 @@ const Cart = (props) => {
   let item;
   var find = null;
   if (props.item == null || props.item == undefined || props.item.length == 0) {
-    console.log(props.item);
     let item = JSON.parse(localStorage.getItem("item"));
-    console.log(item);
     var find = item.filter((e) => {
       console.log(e.username, login);
       if (e.username == login) {
@@ -26,7 +25,9 @@ const Cart = (props) => {
   }
   console.log(find);
   item = find;
-
+  useEffect(() => {
+    item = JSON.parse(localStorage.getItem("item"));
+  });
   return (
     <div>
       {item.map((e) => {
