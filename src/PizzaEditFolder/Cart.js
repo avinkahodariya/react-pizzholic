@@ -3,12 +3,11 @@ import { useLocation } from "react-router-dom";
 import Info from "./Info";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Cart = (props) => {
+  const [itemshow, setitemshow] = useState();
   const { login } = useParams();
-  console.log(props.username, props.item);
-  // console.log(props.item, item);
   let item;
   var find = null;
   if (props.item == null || props.item == undefined || props.item.length == 0) {
@@ -25,17 +24,34 @@ const Cart = (props) => {
   }
   console.log(find);
   item = find;
-  useEffect(() => {
-    item = JSON.parse(localStorage.getItem("item"));
-  });
+  // useEffect(() => {
+  //   let item;
+  //   var find = null;
+  //   if (
+  //     props.item == null ||
+  //     props.item == undefined ||
+  //     props.item.length == 0
+  //   ) {
+  //     let item = JSON.parse(localStorage.getItem("item"));
+  //     var find = item.filter((e) => {
+  //       console.log(e.username, login);
+  //       if (e.username == login) {
+  //         return e;
+  //       }
+  //       console.log(find);
+  //     });
+  //     props.addcart(find);
+  //     console.log(props.item, item);
+  //   }
+  //   console.log(find);
+  //   item = find;
+  // });
   return (
     <div>
       {item.map((e) => {
         var reciep = [];
         for (var i = 0; i < e.reciepe.length; i++) {
-          // console.log(e, e.name, e.reciepe[i]);
           reciep.push(e.reciepe[i][0]);
-          // console.log(reciep);
         }
 
         return (

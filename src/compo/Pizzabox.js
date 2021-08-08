@@ -47,7 +47,9 @@ const Pizzabox = (props) => {
           </p>
           <Button
             className={styles.add}
-            onClick={() => props.redirectFunction(props.id)}
+            Handleclick={() => {
+              props.redirectFunction(props.id);
+            }}
             name="Add+"
           />
         </div>

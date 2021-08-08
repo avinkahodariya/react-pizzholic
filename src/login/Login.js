@@ -42,15 +42,16 @@ const Login = (props) => {
       }
     });
     if (find !== undefined) {
+      console.log("asdwerwerwer", data.username);
       props.loginreducer(data);
       history.push(`/${data.username}/pizza`);
     } else {
     }
   };
-  useEffect(() => {
-    reg = JSON.parse(localStorage.getItem("reg"));
-    console.log(reg);
-  }, []);
+  // useEffect(() => {
+  //   reg = JSON.parse(localStorage.getItem("reg"));
+  //   console.log(reg);
+  // }, []);
   return (
     <>
       <Switch>

@@ -107,8 +107,6 @@ const PizzaEdit = (props) => {
     history.push(`${location.pathname}/cart`);
   };
 
-  useEffect(() => {});
-
   return (
     <>
       <div className={styles.flex}>

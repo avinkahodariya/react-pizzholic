@@ -11,8 +11,9 @@ const Midle = () => {
   const history = useHistory();
   const location = useLocation();
 
-  // const pizza = PizzaArray;
+  const pizza = PizzaArray;
   const redirectFunction = (id) => {
+    console.log("svfbg");
     history.push(`${location.pathname}/pizzaedit/${id}`);
   };
 
