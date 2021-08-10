@@ -6,49 +6,54 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const Cart = (props) => {
-  const [itemshow, setitemshow] = useState();
+  const [items, setitems] = useState([]);
   const { login } = useParams();
-  let item;
-  var find = null;
-  if (props.item == null || props.item == undefined || props.item.length == 0) {
-    let item = JSON.parse(localStorage.getItem("item"));
-    var find = item.filter((e) => {
-      console.log(e.username, login);
-      if (e.username == login) {
-        return e;
-      }
+  console.log(items);
+  // let item;
+  // var find = null;
+  // if (props.item == null || props.item == undefined || props.item.length == 0) {
+  //   let item = JSON.parse(localStorage.getItem("item"));
+  //   var find = item.filter((e) => {
+  //     console.log(e.username, login);
+  //     if (e.username == login) {
+  //       return e;
+  //     }
+  //     console.log(find);
+  //   });
+  //   props.addcart(find);
+  //   console.log(props.item, item);
+  // }
+  // console.log(find);
+  // item = find;
+  useEffect(() => {
+    var item;
+    var find = null;
+    if (
+      props.item == null ||
+      props.item == undefined ||
+      props.item.length == 0
+    ) {
+      item = JSON.parse(localStorage.getItem("item"));
+
+      var find = item.find((e) => {
+        console.log(e.username, login);
+        if (e.username == login) {
+          return e;
+        }
+      });
       console.log(find);
-    });
-    props.addcart(find);
-    console.log(props.item, item);
-  }
-  console.log(find);
-  item = find;
-  // useEffect(() => {
-  //   let item;
-  //   var find = null;
-  //   if (
-  //     props.item == null ||
-  //     props.item == undefined ||
-  //     props.item.length == 0
-  //   ) {
-  //     let item = JSON.parse(localStorage.getItem("item"));
-  //     var find = item.filter((e) => {
-  //       console.log(e.username, login);
-  //       if (e.username == login) {
-  //         return e;
-  //       }
-  //       console.log(find);
-  //     });
-  //     props.addcart(find);
-  //     console.log(props.item, item);
-  //   }
-  //   console.log(find);
-  //   item = find;
-  // });
+
+      props.addcart(find);
+      console.log(props.item, item);
+    }
+    console.log(find);
+
+    setitems((items) => [...items, find]);
+  }, []);
+  console.log(items);
   return (
     <div>
-      {item.map((e) => {
+      {items.map((e) => {
         var reciep = [];
         for (var i = 0; i < e.reciepe.length; i++) {
           reciep.push(e.reciepe[i][0]);
