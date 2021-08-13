@@ -5,18 +5,24 @@ import EditPizzaInfo from "./EditPizzaInfo";
 
 const Pizza_Edit_Portion = (props) => {
   let reciepeArray = props.reciepe;
-  // console.log(reciepeArray);
+  console.log(props.data);
 
   var i = [];
 
-  i = props.reciepe.map((e) => {
-    var compo = e;
+  i = props.data.reciepe.map((e) => {
+    // var compo = e;
+    console.log(
+      "🚀 ~ file: EditPortion.js ~ line 21 ~ i=props.data.reciepe.map ~ e",
+      e
+    );
     return (
       <div className={styles.absolute}>
-        <img src={e[1][0][1]} name={e[0]} className={styles.imagespan} />
+        <img src={e} name={props.data.name} className={styles.imagespan} />
       </div>
     );
   });
+
+  // useEffect(() => {}, []);
 
   return (
     <>
@@ -25,11 +31,6 @@ const Pizza_Edit_Portion = (props) => {
 
         {i}
       </div>
-      {/* <EditPizzaInfo
-        name={props.name}
-        price={props.price}
-        ingreinfo={props.ingreinfo}
-      /> */}
     </>
   );
 };

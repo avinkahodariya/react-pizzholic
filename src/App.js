@@ -14,14 +14,12 @@ import PizzaArray from "./global/PizzaArray";
 
 const App = () => {
   const localstorage = () => {
-    console.log(PizzaArray);
     let pizzastore = JSON.parse(localStorage.getItem("pizzastore"));
     if (pizzastore == null || pizzastore == undefined) {
       let pizzastore = [];
       pizzastore.push(PizzaArray);
       localStorage.setItem("pizzastore", JSON.stringify(pizzastore));
     }
-    console.log(JSON.parse(localStorage.getItem("pizzastore")));
   };
   return (
     <>

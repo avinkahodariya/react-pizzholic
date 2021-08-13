@@ -18,11 +18,16 @@ const Pizzabox = (props) => {
     price: props.price,
   };
 
+  console.log(
+    "🚀 ~ file: Pizzabox.js ~ line 23 ~ d=props.PizzaEdit.find ~ e",
+    props.e
+  );
+
   return (
     <>
-      <div className={styles.box} id={props.id}>
+      <div className={styles.box} id={props.e.id}>
         <img
-          src={props.image}
+          src={props.e.image}
           style={{
             top: "0",
             left: "0",
@@ -33,22 +38,22 @@ const Pizzabox = (props) => {
         />
 
         <div className={styles.info}>
-          <p className={styles.name}> {props.name}</p>
+          <p className={styles.name}> {props.e.name}</p>
           <p className={styles.ingredients}>
             Ingredients:
             <p className={styles.ingre}>
-              {props.ingredients.map((ingre) => {
+              {props.e.ingredients.map((ingre) => {
                 return <span>{ingre[0]} </span>;
               })}
             </p>
           </p>
           <p className={styles.price}>
-            <p className={styles.rupi}> {props.price}</p>
+            <p className={styles.rupi}> {props.e.price}</p>
           </p>
           <Button
             className={styles.add}
             Handleclick={() => {
-              props.redirectFunction(props.id);
+              props.redirectFunction(props.e.id);
             }}
             name="Add+"
           />

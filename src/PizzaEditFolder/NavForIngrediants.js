@@ -5,14 +5,18 @@ import Cart from "./Cart";
 import { useHistory } from "react-router-dom";
 const Nav = (props) => {
   let history = useHistory();
-  // console.log(props.ingre);
+  console.log(props.data);
 
   const redirectToCart = () => {
     history.push({ pathname: "/cart" });
   };
   return (
     <div>
-      <Ingrediants ingre={props.ingre} handleChange={props.handleChange} />
+      <Ingrediants
+        ingre={props.ingre}
+        data={props.data}
+        handleChange={props.handleChange}
+      />
       {/* <button className={styles} onClick={redirectToCart}>
         Buy It...
       </button>

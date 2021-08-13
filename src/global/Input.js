@@ -1,6 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 
-const input = (props) => {
+const input = memo((props) => {
   return (
     <>
       <input
@@ -15,6 +15,6 @@ const input = (props) => {
       />
     </>
   );
-};
+});
 
 export default input;

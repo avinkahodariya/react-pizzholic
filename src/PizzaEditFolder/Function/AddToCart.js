@@ -1,5 +1,6 @@
 const addToCart = (data, props) => {
   let item = JSON.parse(localStorage.getItem("item"));
+  console.log(item);
   if (item == null) {
     item = [];
     item.push(data);

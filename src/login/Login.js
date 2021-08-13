@@ -18,40 +18,36 @@ import { useEffect } from "react";
 const Login = (props) => {
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
-  const [correct, setcorrect] = useState(false);
+  const [reg_array, setreg] = useState([]);
   let history = useHistory();
 
   const data = {
     username,
     password,
   };
-  let reg;
 
   const login = (data) => {
-    reg = JSON.parse(localStorage.getItem("reg"));
-    if (reg == null || reg == undefined) {
-      reg = [];
+    if (reg_array == null || reg_array == undefined) {
+      reg_array = [];
     }
-    var find = reg.find((e) => {
+    props.register(reg_array);
+    var find = reg_array.find((e) => {
       if (e.username == data.username && e.password == data.password) {
         props.loginreducer(e.username);
-        console.log(data.username);
         return true;
       } else {
         return false;
       }
     });
     if (find !== undefined) {
-      console.log("asdwerwerwer", data.username);
       props.loginreducer(data);
       history.push(`/${data.username}/pizza`);
-    } else {
     }
   };
-  // useEffect(() => {
-  //   reg = JSON.parse(localStorage.getItem("reg"));
-  //   console.log(reg);
-  // }, []);
+  useEffect(() => {
+    let reg = JSON.parse(localStorage.getItem("reg"));
+    setreg(reg);
+  }, []);
   return (
     <>
       <Switch>
@@ -101,6 +97,12 @@ const mapDispatchToprops = (dispatch) => {
     loginreducer: (payload) => {
       dispatch({
         type: "login",
+        payload,
+      });
+    },
+    register: (payload) => {
+      dispatch({
+        type: "register",
         payload,
       });
     },

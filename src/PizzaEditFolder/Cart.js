@@ -8,23 +8,8 @@ import { useEffect, useState } from "react";
 const Cart = (props) => {
   const [items, setitems] = useState([]);
   const { login } = useParams();
-  console.log(items);
-  // let item;
-  // var find = null;
-  // if (props.item == null || props.item == undefined || props.item.length == 0) {
-  //   let item = JSON.parse(localStorage.getItem("item"));
-  //   var find = item.filter((e) => {
-  //     console.log(e.username, login);
-  //     if (e.username == login) {
-  //       return e;
-  //     }
-  //     console.log(find);
-  //   });
-  //   props.addcart(find);
-  //   console.log(props.item, item);
-  // }
-  // console.log(find);
-  // item = find;
+  console.log(props.item);
+
   useEffect(() => {
     var item;
     var find = null;
@@ -97,10 +82,3 @@ const mapDispatchToprops = (dispatch) => {
 };
 
 export default connect(mapstateToprops, mapDispatchToprops)(Cart);
-
-// {
-//   for(i=0;i>6;i++)
-//   {
-// if(idArray[])
-//   }
-// }

@@ -13,7 +13,6 @@ const Midle = () => {
 
   const pizza = PizzaArray;
   const redirectFunction = (id) => {
-    console.log("svfbg");
     history.push(`${location.pathname}/pizzaedit/${id}`);
   };
 
@@ -21,16 +20,7 @@ const Midle = () => {
     <div className={style.midleflex}>
       <div className={style.Midle}>
         {PizzaArray.map((e) => {
-          return (
-            <Pizzabox
-              ingredients={e.ingredients}
-              price={e.price}
-              name={e.name}
-              id={e.id}
-              image={e.image}
-              redirectFunction={redirectFunction}
-            />
-          );
+          return <Pizzabox redirectFunction={redirectFunction} e={e} />;
         })}
       </div>
       <div className={style.twit}>

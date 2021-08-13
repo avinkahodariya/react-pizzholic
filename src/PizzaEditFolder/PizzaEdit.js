@@ -3,43 +3,37 @@ import NavForIngrediants from "./NavForIngrediants";
 import { connect } from "react-redux";
 import EditPortion from "./EditPortion";
 import styles from "./pizzaedit.module.css";
-import Pizzabox from "../compo/Pizzabox";
 import { useHistory, useLocation } from "react-router-dom";
 import * as All from "../assets/images";
 import Footer from "../global/Footer";
 import Button from "../global/Button";
-
+import { memo } from "react";
+// import { addToCart } from "./Function/addToCart";
 import { useParams } from "react-router-dom";
 
 const PizzaEdit = (props) => {
   const [checkedItems, setCheckedItems] = useState([]);
+  const [data, setdata] = useState({
+    ingredients: 1,
+    price: 1,
+    name: 1,
+    id: 0,
+    image: 1,
+    reciepe: [1],
+    usernmae: 1,
+  });
+  const [item, setitem] = useState([1]);
+  const [reg, setreg] = useState([1]);
   var { id, login } = useParams();
   let history = useHistory();
   var location = useLocation();
-  var pizzaid = [];
-
-  let pizaadata = JSON.parse(localStorage.getItem("pizzastore"))[0];
-  pizzaid = pizaadata.filter((e) => {
-    if (e.id == id) {
-      return e;
-    }
-  });
-
-  const data = {
-    ingredients: pizzaid[0].ingredients,
-    price: pizzaid[0].price,
-    name: pizzaid[0].name,
-    id: pizzaid[0].id,
-    image: pizzaid[0].image,
-    reciepe: checkedItems,
-    username: login,
-  };
-
-  var ingredients = pizzaid[0].ingredients;
-  var price = pizzaid[0].price;
-  var name = pizzaid[0].name;
-  var id = pizzaid[0].id;
-  var image = pizzaid[0].image;
+  var pid = useParams().id;
+  console.log("🚀 ~ file: PizzaEdit.js ~ line 131 ~ pizzaid ~ pizzaid", data);
+  var ingredients = data.ingredients;
+  var price = data.price;
+  var name = data.name;
+  var id = data.id;
+  var image = data.image;
   var reciepe = checkedItems;
   var username = login;
 
@@ -70,42 +64,86 @@ const PizzaEdit = (props) => {
   };
 
   const addToCart = (data) => {
-    console.log("asdffg", props.username, props.user, login);
+    // console.log(
+    //   "🚀 ~ file: PizzaEdit.js ~ line 60 ~ addToCart ~ props.user.length",
+    //   props.user.length
+    // );
     if (props.user.length == 0) {
-      let reg = JSON.parse(localStorage.getItem("reg"));
+      // let reg = JSON.parse(localStorage.getItem("reg"));
       var a = reg.find((e) => {
         if (e.username == login) {
+          // console.log("🚀 ~ file: PizzaEdit.js ~ line 63 ~ a ~ login", login);
+          // console.log(
+          //   "🚀 ~ file: PizzaEdit.js ~ line 63 ~ a ~ e.username",
+          //   e.username
+          // );
           return e;
         }
       });
+      // console.log("🚀 ~ file: PizzaEdit.js ~ line 71 ~ a ~ a", a);
+
       props.register(a);
-    }
-    var check = props.user.find((e) => {
-      if (e.username == login) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-    if (check == false) {
-      history.push(`/`);
-    }
-    let item = JSON.parse(localStorage.getItem("item"));
-    if (item == null) {
-      item = [];
-      item.push(data);
-      localStorage.setItem("item", JSON.stringify(item));
     } else {
-      item.push(data);
-      localStorage.setItem("item", JSON.stringify(item));
+      var check = props.user.find((e) => {
+        if (e.username == login) {
+          // console.log(
+          //   "🚀 ~ file: PizzaEdit.js ~ line 76 ~ check ~ login",
+          //   login
+          // );
+          // console.log(
+          //   "🚀 ~ file: PizzaEdit.js ~ line 76 ~ check ~ e.username",
+          //   e.username
+          // );
+          return true;
+        } else {
+          return false;
+        }
+      });
+      if (check == false) {
+        history.push(`/`);
+      }
+      // let item = JSON.parse(localStorage.getItem("item"));
+      if (item == null) {
+        item = [];
+        item.push(data);
+        console.log(item);
+        localStorage.setItem("item", JSON.stringify(item));
+      } else {
+        item.push(data);
+        localStorage.setItem("item", JSON.stringify(item));
+      }
+
+      props.addcart(data);
     }
-
-    props.addcart(data);
   };
-
   const gotocart = () => {
     history.push(`${location.pathname}/cart`);
   };
+
+  useEffect((id) => {
+    let pizaadata = JSON.parse(localStorage.getItem("pizzastore"))[0];
+
+    let pizzaid = pizaadata.find((e) => {
+      if (e.id == pid) {
+        return e;
+      }
+    });
+    console.log(
+      "🚀 ~ file: PizzaEdit.js ~ line 131 ~ pizzaid ~ pizzaid",
+      pizzaid
+    );
+
+    setdata(pizzaid);
+  }, []);
+
+  useEffect(() => {
+    let item = JSON.parse(localStorage.getItem("item"));
+    setitem(item);
+  }, []);
+  useEffect(() => {
+    let reg = JSON.parse(localStorage.getItem("reg"));
+    setreg(reg);
+  }, []);
 
   return (
     <>
@@ -129,26 +167,29 @@ const PizzaEdit = (props) => {
           {" "}
           <EditPortion
             reciepe={checkedItems}
-            name={name}
-            price={price}
-            ingreinfo={ingredients}
+            // name={name}
+            // price={price}
+            // ingreinfo={ingredients}
+            data={data}
           />
         </div>
 
         <NavForIngrediants
-          ingre={ingredients}
-          price={price}
-          name={name}
-          id={id}
-          image={image}
+          // ingre={ingredients}
+          // price={price}
+          // name={name}
+          // id={id}
+          // image={image}
           handleChange={handleChange}
+          data={data}
         />
 
         <Button
           name={"Buy Now..."}
           className={styles.center}
-          Handleclick={props.buynow}
+          Handleclick={gotocart}
         />
+
         <Button
           name={"Add To Cart.."}
           className={styles.center}
