@@ -10,41 +10,41 @@ import Button from "../global/Button";
 import { memo } from "react";
 // import { addToCart } from "./Function/addToCart";
 import { useParams } from "react-router-dom";
+import * as Al from "../assets/images";
 
 const PizzaEdit = (props) => {
   const [checkedItems, setCheckedItems] = useState([]);
   const [data, setdata] = useState({
-    ingredients: 1,
-    price: 1,
-    name: 1,
-    id: 0,
-    image: 1,
-    reciepe: [1],
-    usernmae: 1,
+    name: "Italian Pizza",
+    ingredients: [
+      ["Tomato", Al.Tomato],
+      ["Brokoli", Al.Brokoli],
+      ["Onion", Al.Onion],
+      ["Olive", Al.Olive],
+      ["Mozzarella", Al.Mozzarella],
+    ],
+    price: "300",
+    id: "1",
+    image: Al.italian,
   });
-  const [item, setitem] = useState([1]);
-  const [reg, setreg] = useState([1]);
+
+  const [cartitem, setcartitem] = useState(null);
+  const [reg, setreg] = useState([]);
   var { id, login } = useParams();
   let history = useHistory();
   var location = useLocation();
   var pid = useParams().id;
-  console.log("🚀 ~ file: PizzaEdit.js ~ line 131 ~ pizzaid ~ pizzaid", data);
   var ingredients = data.ingredients;
   var price = data.price;
   var name = data.name;
   var id = data.id;
   var image = data.image;
-  var reciepe = checkedItems;
-  var username = login;
 
+  console.log(cartitem);
   const handleChange = (event) => {
-    console.log(checkedItems, event);
+    console.log(checkedItems);
 
     if (event.target.checked) {
-      console.log(checkedItems);
-
-      console.log(...checkedItems);
-
       setCheckedItems([
         ...checkedItems,
         [
@@ -63,37 +63,38 @@ const PizzaEdit = (props) => {
     }
   };
 
-  const addToCart = (data) => {
-    // console.log(
-    //   "🚀 ~ file: PizzaEdit.js ~ line 60 ~ addToCart ~ props.user.length",
-    //   props.user.length
-    // );
+  var username = login;
+  var reciepe = checkedItems;
+
+  const addtothecart = () => {
+    data.reciepe = reciepe;
+    data.username = login;
+    setdata({ ...data });
     if (props.user.length == 0) {
-      // let reg = JSON.parse(localStorage.getItem("reg"));
       var a = reg.find((e) => {
+        console.log(login, e.username);
         if (e.username == login) {
-          // console.log("🚀 ~ file: PizzaEdit.js ~ line 63 ~ a ~ login", login);
-          // console.log(
-          //   "🚀 ~ file: PizzaEdit.js ~ line 63 ~ a ~ e.username",
-          //   e.username
-          // );
           return e;
         }
       });
-      // console.log("🚀 ~ file: PizzaEdit.js ~ line 71 ~ a ~ a", a);
 
       props.register(a);
+
+      cartitem.push(data);
+
+      setcartitem(cartitem);
+      console.log(
+        "🚀 ~ file: PizzaEdit.js ~ line 152 ~ addtothecart ~ cartitem",
+        cartitem
+      );
+
+      localStorage.setItem("cartitem", JSON.stringify(cartitem));
+
+      props.addcart(data);
     } else {
+      console.log("asd");
       var check = props.user.find((e) => {
         if (e.username == login) {
-          // console.log(
-          //   "🚀 ~ file: PizzaEdit.js ~ line 76 ~ check ~ login",
-          //   login
-          // );
-          // console.log(
-          //   "🚀 ~ file: PizzaEdit.js ~ line 76 ~ check ~ e.username",
-          //   e.username
-          // );
           return true;
         } else {
           return false;
@@ -101,21 +102,21 @@ const PizzaEdit = (props) => {
       });
       if (check == false) {
         history.push(`/`);
-      }
-      // let item = JSON.parse(localStorage.getItem("item"));
-      if (item == null) {
-        item = [];
-        item.push(data);
-        console.log(item);
-        localStorage.setItem("item", JSON.stringify(item));
       } else {
-        item.push(data);
-        localStorage.setItem("item", JSON.stringify(item));
-      }
+        console.log(
+          "🚀 ~ file: PizzaEdit.js ~ line 169 ~ addtothecart ~ cartitem",
+          cartitem
+        );
 
-      props.addcart(data);
+        cartitem.push(data);
+        setcartitem(cartitem);
+        localStorage.setItem("cartitem", JSON.stringify(cartitem));
+
+        props.addcart(data);
+      }
     }
   };
+  console.log(props.cartitem, cartitem);
   const gotocart = () => {
     history.push(`${location.pathname}/cart`);
   };
@@ -128,17 +129,17 @@ const PizzaEdit = (props) => {
         return e;
       }
     });
-    console.log(
-      "🚀 ~ file: PizzaEdit.js ~ line 131 ~ pizzaid ~ pizzaid",
-      pizzaid
-    );
 
     setdata(pizzaid);
   }, []);
 
   useEffect(() => {
-    let item = JSON.parse(localStorage.getItem("item"));
-    setitem(item);
+    let ct = JSON.parse(localStorage.getItem("cartitem"));
+    if (ct == null || ct == undefined) {
+      ct = [];
+    }
+
+    setcartitem(ct);
   }, []);
   useEffect(() => {
     let reg = JSON.parse(localStorage.getItem("reg"));
@@ -164,22 +165,11 @@ const PizzaEdit = (props) => {
           />
         </p>
         <div className={styles.pizzarelative}>
-          {" "}
-          <EditPortion
-            reciepe={checkedItems}
-            // name={name}
-            // price={price}
-            // ingreinfo={ingredients}
-            data={data}
-          />
+          <EditPortion reciepe={checkedItems} data={data} />
         </div>
 
         <NavForIngrediants
-          // ingre={ingredients}
-          // price={price}
-          // name={name}
-          // id={id}
-          // image={image}
+          reciepe={checkedItems}
           handleChange={handleChange}
           data={data}
         />
@@ -193,7 +183,7 @@ const PizzaEdit = (props) => {
         <Button
           name={"Add To Cart.."}
           className={styles.center}
-          Handleclick={() => addToCart(data)}
+          Handleclick={() => addtothecart(data)}
         />
 
         <Footer />
@@ -205,7 +195,7 @@ const PizzaEdit = (props) => {
 const mapstateToprops = (state) => {
   return {
     username: state.login.username,
-    item: state.addcart.item,
+    cartitem: state.addcart.cartitem,
     user: state.register.user,
   };
 };
@@ -219,7 +209,7 @@ const mapDispatchToprops = (dispatch) => {
     },
     register: (payload) => {
       dispatch({
-        type: "register",
+        type: "Register",
         payload,
       });
     },

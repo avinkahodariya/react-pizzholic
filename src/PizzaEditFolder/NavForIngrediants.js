@@ -5,7 +5,6 @@ import Cart from "./Cart";
 import { useHistory } from "react-router-dom";
 const Nav = (props) => {
   let history = useHistory();
-  console.log(props.data);
 
   const redirectToCart = () => {
     history.push({ pathname: "/cart" });
@@ -15,6 +14,8 @@ const Nav = (props) => {
       <Ingrediants
         ingre={props.ingre}
         data={props.data}
+        reciepe={props.checkedItems}
+        reciepe={props.checkedItems}
         handleChange={props.handleChange}
       />
       {/* <button className={styles} onClick={redirectToCart}>

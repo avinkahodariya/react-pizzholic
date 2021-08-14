@@ -376,3 +376,34 @@ p {
 
   /* display: none; */
 }
+
+.cartlist {
+  border: solid;
+  padding: 10px;
+  margin: 0 auto;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.cartinfo {
+  border: solid;
+  overflow: auto;
+  padding: 10px;
+}
+.cartingre {
+  border: solid;
+  padding: 10px;
+}
+.plusminus {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-radius: 1em;
+}

@@ -6,9 +6,7 @@ const intialstate = {
 const register = (state = intialstate, action) => {
   switch (action.type) {
     case "Register": {
-      console.log(state.user.length);
       if (state.user.length !== 0) {
-        console.log(state.user);
         var a = state.user.find((e) => {
           if (
             e.username == action.payload.username ||
@@ -19,9 +17,9 @@ const register = (state = intialstate, action) => {
             return false;
           }
         });
-        console.log("a is:", a);
+        // console.log("a is:", a);
         if (a) {
-          console.log("a is found");
+          // console.log("a is found");
           return { ...state, found: true };
         } else {
           console.log("a is not fo");
@@ -40,12 +38,12 @@ const register = (state = intialstate, action) => {
           };
         }
       } else {
-        console.log(action.payload);
+        // console.log(action.payload);
         state.user.push(action.payload);
-        console.log(
-          "🚀 ~ file: register.js ~ line 55 ~ register ~  state.user",
-          state.user
-        );
+        // console.log(
+        //   "🚀 ~ file: register.js ~ line 55 ~ register ~  state.user",
+        //   state.user
+        // );
 
         let reg = JSON.parse(localStorage.getItem("reg"));
         if (reg == null || reg == undefined) {
@@ -53,8 +51,19 @@ const register = (state = intialstate, action) => {
           reg.push(action.payload);
           localStorage.setItem("reg", JSON.stringify(reg));
         } else {
+          var a = reg.find((e) => {
+            if (e.username == action.payload.username) {
+              return true;
+            } else {
+              return false;
+            }
+          });
+
+          if (a == false) {
+            localStorage.setItem("reg", JSON.stringify(reg));
+          }
+
           reg.push(action.payload);
-          localStorage.setItem("reg", JSON.stringify(reg));
         }
 
         return { ...state, user: state.user, found: false };

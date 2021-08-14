@@ -18,10 +18,10 @@ const Pizzabox = (props) => {
     price: props.price,
   };
 
-  console.log(
-    "🚀 ~ file: Pizzabox.js ~ line 23 ~ d=props.PizzaEdit.find ~ e",
-    props.e
-  );
+  // console.log(
+  //   "🚀 ~ file: Pizzabox.js ~ line 23 ~ d=props.PizzaEdit.find ~ e",
+  //   props.e
+  // );
 
   return (
     <>

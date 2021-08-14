@@ -4,48 +4,95 @@ import Info from "./Info";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import styles from "./pizzaedit.module.css";
+import Button from "../global/Button";
+import Icon from "@material-ui/core/Icon";
+import { IconButton } from "@material-ui/core";
 
 const Cart = (props) => {
-  const [items, setitems] = useState([]);
+  const [user_cart, setusercart] = useState([]);
   const { login } = useParams();
-  console.log(props.item);
+  const [count, setcount] = useState(0);
 
   useEffect(() => {
-    var item;
-    var find = null;
+    var i = 0;
+    console.log("asd");
     if (
-      props.item == null ||
-      props.item == undefined ||
-      props.item.length == 0
+      props.cartitem == null ||
+      props.cartitem == undefined ||
+      props.cartitem.length == 0
     ) {
-      item = JSON.parse(localStorage.getItem("item"));
+      let cartitem = JSON.parse(localStorage.getItem("cartitem"));
+      console.log(
+        "🚀 ~ file: Cart.js ~ line 47 ~ useEffect ~ cartitem",
+        cartitem
+      );
 
-      var find = item.find((e) => {
-        console.log(e.username, login);
+      var find = cartitem.filter((e) => {
+        console.log(e.username, login, e);
+        if (e.username == login) {
+          e.cid = i;
+          i++;
+          return e;
+        }
+      });
+      console.log("🚀 ~ file: Cart.js ~ line 58 ~ find ~ find", find);
+
+      if (find) {
+        find.forEach((e) => {
+          console.log("asder");
+          props.addcart(e);
+          console.log("asdadsfer");
+        });
+      }
+      console.log(props.cartitem);
+      let user_c = [];
+      find.forEach((e) => {
+        user_c.push(e);
+      });
+      setusercart(user_c);
+    } else {
+      let find = props.cartitem.filter((e) => {
         if (e.username == login) {
           return e;
         }
       });
-      console.log(find);
-
-      props.addcart(find);
-      console.log(props.item, item);
+      let user_c = [];
+      if (find) {
+        find.forEach((e) => {
+          user_c.push(e);
+        });
+        setusercart(user_c);
+      }
     }
-    console.log(find);
 
-    setitems((items) => [...items, find]);
+    let cart;
   }, []);
-  console.log(items);
+
+  const countplus = (e) => {
+    // console.log(e);
+    // e.count = e.count + 1;
+    // console.log("🚀 ~ file: Cart.js ~ line 74 ~ countplus ~  e.count", e.count);
+    // localStorage.setItem("cartitem", JSON.stringify(cartitem));
+  };
+  const countminus = () => {
+    // e.count = e.count - 1;
+  };
+
+  console.log(user_cart);
+
   return (
     <div>
-      {items.map((e) => {
-        var reciep = [];
+      {user_cart.map((e, i) => {
+        console.log(i);
+        var rp = [];
+        console.log(e.reciepe);
         for (var i = 0; i < e.reciepe.length; i++) {
-          reciep.push(e.reciepe[i][0]);
+          rp.push(e.reciepe[i][0]);
         }
 
         return (
-          <div>
+          <div className={styles.cartlist} id={i}>
             <img
               src={e.image}
               style={{
@@ -55,7 +102,30 @@ const Cart = (props) => {
               }}
             />
             {}
-            <Info ingrediants={reciep} name={e.name} price={e.price} />
+            <div className={styles.cartinfo}>
+              <Info ingrediants={rp} name={e.name} price={e.price} />
+            </div>
+            <div className={styles.plusminus}>
+              <IconButton
+                id={e.i}
+                // onClick={() => {
+                //   countplus(e);
+                // }}
+                style={{ fontSize: 30, height: "25px", width: "25px" }}
+              >
+                +
+              </IconButton>
+              {count}
+              <IconButton
+                // id={e.cid}
+                // onClick={() => {
+                //   countminus(e);
+                // }}
+                style={{ fontSize: 30, height: "25px", width: "25px" }}
+              >
+                -
+              </IconButton>
+            </div>
           </div>
         );
       })}
@@ -66,7 +136,7 @@ const Cart = (props) => {
 const mapstateToprops = (state) => {
   return {
     username: state.login.username,
-    item: state.addcart.item,
+    cartitem: state.addcart.cartitem,
   };
 };
 
