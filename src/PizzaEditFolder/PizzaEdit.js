@@ -26,6 +26,8 @@ const PizzaEdit = (props) => {
     price: "300",
     id: "1",
     image: Al.italian,
+    newprice: 0,
+    count: 1,
   });
 
   const [cartitem, setcartitem] = useState(null);
@@ -66,61 +68,104 @@ const PizzaEdit = (props) => {
   var username = login;
   var reciepe = checkedItems;
 
-  const addtothecart = () => {
-    data.reciepe = reciepe;
-    data.username = login;
-    setdata({ ...data });
-    if (props.user.length == 0) {
-      var a = reg.find((e) => {
-        console.log(login, e.username);
-        if (e.username == login) {
-          return e;
-        }
-      });
+  const delcart = (e) => {
+    var f_id = e.uid;
 
-      props.register(a);
+    var cartitem = JSON.parse(localStorage.getItem("cartitem"));
+    var find_item = cartitem.findIndex(({ uid }) => {
+      return uid == f_id;
+    });
 
-      cartitem.push(data);
+    cartitem.splice(find_item, 1);
+    localStorage.setItem("cartitem", JSON.stringify(cartitem));
+    setcartitem(cartitem);
+    props.dele(e);
+  };
 
-      setcartitem(cartitem);
-      console.log(
-        "🚀 ~ file: PizzaEdit.js ~ line 152 ~ addtothecart ~ cartitem",
-        cartitem
-      );
-
-      localStorage.setItem("cartitem", JSON.stringify(cartitem));
-
-      props.addcart(data);
+  const addtothecart = (data) => {
+    if (login == null) {
+      history.push("/login");
     } else {
-      console.log("asd");
-      var check = props.user.find((e) => {
-        if (e.username == login) {
-          return true;
-        } else {
-          return false;
-        }
-      });
-      if (check == false) {
-        history.push(`/`);
-      } else {
+      console.log(data);
+      data.reciepe = reciepe;
+      data.username = login;
+
+      function create_UUID() {
+        var dt = new Date().getTime();
+        var uuid = "xxxxxxx".replace(/[xy]/g, function (c) {
+          var r = (dt + Math.random() * 16) % 16 | 0;
+          dt = Math.floor(dt / 16);
+          return (c == "x" ? r : (r & 0x3) | 0x8).toString(16);
+        });
+        return uuid;
+      }
+
+      data.uid = create_UUID();
+      console.log(data.uid);
+
+      // setdata({ ...data });
+      if (props.user.length == 0) {
+        var a = reg.find((e) => {
+          console.log(login, e.username);
+          if (e.username == login) {
+            return e;
+          }
+        });
+        console.log(a);
+
+        console.log(cartitem);
+        props.register(a);
+        console.log(cartitem);
+
+        cartitem.push(data);
+        console.log(cartitem);
+
+        setcartitem(cartitem);
         console.log(
-          "🚀 ~ file: PizzaEdit.js ~ line 169 ~ addtothecart ~ cartitem",
+          "🚀 ~ file: PizzaEdit.js ~ line 152 ~ addtothecart ~ cartitem",
           cartitem
         );
 
-        cartitem.push(data);
-        setcartitem(cartitem);
         localStorage.setItem("cartitem", JSON.stringify(cartitem));
 
         props.addcart(data);
+      } else {
+        console.log("asd");
+        var check = props.user.find((e) => {
+          if (e.username == login) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+        if (check == false) {
+          history.push(`/`);
+        } else {
+          console.log(
+            "🚀 ~ file: PizzaEdit.js ~ line 169 ~ addtothecart ~ cartitem",
+            cartitem
+          );
+          console.log(data, cartitem);
+          cartitem.push(data);
+          setcartitem(cartitem);
+          localStorage.setItem("cartitem", JSON.stringify(cartitem));
+
+          props.addcart(data);
+        }
       }
+
+      setdata({ ...data });
     }
   };
-  console.log(props.cartitem, cartitem);
+  // console.log(props.cartitem, cartitem);
   const gotocart = () => {
+    setcartitem(null);
     history.push(`${location.pathname}/cart`);
+    // history.push({
+    //   pathname: `${location.pathname}/cart`,
+    //   state: delcart,
+    // });
   };
-
   useEffect((id) => {
     let pizaadata = JSON.parse(localStorage.getItem("pizzastore"))[0];
 
@@ -129,7 +174,7 @@ const PizzaEdit = (props) => {
         return e;
       }
     });
-
+    console.log(pizzaid);
     setdata(pizzaid);
   }, []);
 
@@ -178,6 +223,7 @@ const PizzaEdit = (props) => {
           name={"Buy Now..."}
           className={styles.center}
           Handleclick={gotocart}
+          delcart={delcart}
         />
 
         <Button
@@ -210,6 +256,12 @@ const mapDispatchToprops = (dispatch) => {
     register: (payload) => {
       dispatch({
         type: "Register",
+        payload,
+      });
+    },
+    dele: (payload) => {
+      dispatch({
+        type: "dele",
         payload,
       });
     },

@@ -25,6 +25,29 @@ const addcart = (state = intialstate, action) => {
         cartitem: state.cartitem,
       };
     }
+
+    case "updatecart": {
+      var newcartitem = state.cartitem.findIndex((e) => {
+        return e.uid == action.payload.uid;
+      });
+
+      state.cartitem[newcartitem] = action.payload;
+      console.log(state.cartitem);
+
+      return {
+        cartitem: state.cartitem,
+      };
+    }
+
+    case "dele": {
+      var newcartitem = state.cartitem.findIndex((e) => {
+        return e.uid == action.payload.uid;
+      });
+      state.cartitem.splice(newcartitem, 1);
+      return {
+        cartitem: state.cartitem,
+      };
+    }
     default:
       return state;
   }

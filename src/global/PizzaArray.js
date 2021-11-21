@@ -15,6 +15,7 @@ const PizzaArray = [
     id: "1",
     image: Al.italian,
     count: "1",
+    newprice: "300",
   },
 
   {
@@ -30,6 +31,7 @@ const PizzaArray = [
     id: "2",
     image: Al.pasta,
     count: "1",
+    newprice: "400",
   },
 
   {
@@ -44,6 +46,7 @@ const PizzaArray = [
     id: "3",
     image: Al.masroom,
     count: "1",
+    newprice: "500",
   },
 
   {
@@ -58,6 +61,7 @@ const PizzaArray = [
     id: "4",
     image: Al.paneer,
     count: "1",
+    newprice: "350",
   },
 
   {
@@ -72,6 +76,7 @@ const PizzaArray = [
     id: "5",
     image: Al.mexican,
     count: "1",
+    newprice: "380",
   },
 
   {
@@ -86,6 +91,7 @@ const PizzaArray = [
     id: "6",
     image: Al.veg,
     count: "1",
+    newprice: "280",
   },
 ];
 
